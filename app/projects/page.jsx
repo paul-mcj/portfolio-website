@@ -1,46 +1,15 @@
 // components
 import PrimarySectionHeader from "@/components/layout/PrimarySectionHeader";
-import ProjectCard from "@/components/layout/ProjectCard";
-import ImageContainer from "@/components/layout/ImageContainer";
 import CallToActionButton from "@/components/assets/CallToActionButton";
+import ProjectCard from "@/components/layout/ProjectCard";
 
-// images
-import profilePic from "@/public/images/other/profile_pic.jpg";
 import onlineStorePic from "@/public/images/project_screenshots/online_store_2.png";
 
-export default function Home() {
+const ProjectsPage = () => {
 	return (
 		<>
-			<section className="grid place-items-center text-center gap-6 px-6">
-				<ImageContainer
-					src={profilePic}
-					alt="Paul McJannet in pink shirt with waterfall in background"
-					title="Paul McJannet"
-					borderColor="border-primary"
-				/>
-				<PrimarySectionHeader title="Hi, I'm Paul, Web Developer" />
-				<p>
-					Based in Ontario, Canada. I transform ideas into
-					beautiful, interactive web applications.
-				</p>
-				<p>
-					I have a diverse set of skills ranging from frontend
-					design using JavaScript and React, to machine learning
-					with Python.
-				</p>
-				{/* TODO: use actual updated resume, and implement an alert/toast to warn users that a resume is about to be downloaded onto their system */}
-				<a
-					href="/downloads/test.pdf"
-					download>
-					<CallToActionButton>
-						Download Resume
-					</CallToActionButton>
-				</a>
-			</section>
 			<section className="grid place-items-center gap-6 p-6 mt-24">
-				<h2 className="font-merriweather font-bold text-xl">
-					Featured Works
-				</h2>
+				<PrimarySectionHeader title="My Projects" />
 				<ProjectCard
 					title="Online Store"
 					date="Nov 2024"
@@ -78,7 +47,49 @@ export default function Home() {
 					githubLink="https://github.com/paul-mcj/Beer-Order-App"
 					websiteLink="#"
 				/>
+				<ProjectCard
+					title="Python Game"
+					date="Nov 2024"
+					skills={["python"]}
+					src={onlineStorePic}
+					desc="Python game where users try to guess numbers within a given range (the range depends on selected difficult level)."
+					alt="Python number guessing game being played on a terminal"
+					githubLink="https://github.com/paul-mcj/Python-Game"
+					websiteLink="#"
+				/>
+				<ProjectCard
+					title="Music Player"
+					date="Dec 2021"
+					skills={["html", "css", "javascript"]}
+					src={onlineStorePic}
+					desc="Music player that plays, pauses, skips, repeats and shuffles songs. Also has input sliders for song seeking and volume control."
+					alt="A music player with pink and orange background with play, pause and skip buttons"
+					githubLink="https://github.com/paul-mcj/Music-Player"
+					websiteLink="#"
+				/>
+				<ProjectCard
+					title="Reality Check"
+					date="Apr 2023"
+					skills={["react native", "javascript", "css"]}
+					src={onlineStorePic}
+					desc="React Native application that allows users to push notifications of when they need to be reminded to perform reality checks in order to help induce lucid dreams."
+					alt="Screenshot of reality check in action where user is setting a reminder timer"
+					githubLink="https://github.com/paul-mcj/Reality-Check"
+					websiteLink="#"
+				/>
+				{/* TODO: use actual updated resume, and implement an alert/toast to warn users that a resume is about to be downloaded onto their system */}
+			</section>
+			<section className="grid place-items-center gap-6 p-6 mt-12">
+				<a
+					href="/downloads/test.pdf"
+					download>
+					<CallToActionButton>
+						Download Resume
+					</CallToActionButton>
+				</a>
 			</section>
 		</>
 	);
-}
+};
+
+export default ProjectsPage;

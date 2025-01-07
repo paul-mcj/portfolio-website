@@ -3,19 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--primary: #2a9ee6;
+	--primary_tint: #4e9ccc;
+	--primary_tint_2: #4481a7;
+	--primary_tint_3: #25465b;
+	--primary_tone: #d1eafa;
+	--secondary: #e62a66;
+
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+nextjs-portal {
+	@apply hidden; /* Hides the element */
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
 }
