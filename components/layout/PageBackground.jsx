@@ -11,6 +11,7 @@ const PageBackground = () => {
 				quality={100}
 				src={sparkles}
 				alt={sparkles}
+				priority
 				className={`opacity-50 object-cover h-full w-full `}
 			/>
 		</div>

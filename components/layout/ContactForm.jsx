@@ -1,18 +1,22 @@
 // client side component
 "use client";
 
-// icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 // react
 import { useReducer, useEffect } from "react";
 
 // validator
 import validator from "validator";
 
+// icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 // components
-import CallToActionButton from "../assets/CallToActionButton";
+import CallToActionButton from "@/components/assets/CallToActionButton";
+import AlertContainer from "../assets/AlertContainer";
+
+// toastify
+import { toast } from "react-toastify";
 
 // initial form state
 const initialState = {
@@ -80,6 +84,17 @@ const ContactForm = () => {
 
 		// TODO: send to my email and if it reaches my inbox (can i make sure anything from my website once set up is not spam?) with a good response, then
 		// TODO: alert user that email was sent successfully (otherwise an alter that the email could not be sent needs to show)
+		toast("Email sent successfully!", {
+			position: "top-center",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: false,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+			theme: "dark"
+			// transition: Flip
+		});
 
 		// reset the contact form state
 		dispatch({ type: "CLEAR" });
@@ -166,7 +181,7 @@ const ContactForm = () => {
 				/>
 			</div>
 			<div className="justify-center">
-				<CallToActionButton width={"w-1/2 md:w-1/3"}>
+				<CallToActionButton width={"md:w-1/3"}>
 					<div className="flex justify-center items-center gap-x-2">
 						<FontAwesomeIcon
 							icon={faEnvelope}
@@ -175,6 +190,7 @@ const ContactForm = () => {
 						<p>Send</p>
 					</div>
 				</CallToActionButton>
+				<AlertContainer autoCloseTime={5000} />
 			</div>
 		</form>
 	);

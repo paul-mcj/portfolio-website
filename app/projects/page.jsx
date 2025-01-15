@@ -1,7 +1,7 @@
 // components
 import PrimarySectionHeader from "@/components/layout/PrimarySectionHeader";
-import CallToActionButton from "@/components/assets/CallToActionButton";
 import ProjectCard from "@/components/layout/ProjectCard";
+import PromptUserAlert from "@/components/assets/PromptUserAlert";
 
 // images
 import onlineStore from "@/public/images/project_screenshots/online-store.png";
@@ -14,7 +14,7 @@ import cryptoCalculator from "@/public/images/project_screenshots/crypto-calcula
 const ProjectsPage = () => {
 	return (
 		<>
-			<section className="grid place-items-center gap-y-8 sm:gap-y-12 text-left">
+			<section className="grid place-items-center gap-y-8 sm:gap-y-12 text-left md:text-base lg:text-lg">
 				<PrimarySectionHeader title="My Projects" />
 				<ProjectCard
 					title="Beer Order App"
@@ -93,17 +93,9 @@ const ProjectsPage = () => {
 					githubLink="https://github.com/paul-mcj/Crypto-Calculator"
 					websiteLink="https://paul-mcj.github.io/Crypto-Calculator/"
 				/>
-				{/* TODO: use actual updated resume, and implement an alert/toast to warn users that a resume is about to be downloaded onto their system */}
 			</section>
 			<section className="flex flex-col gap-y-8 sm:gap-y-12 mt-16">
-				{/* TODO: use actual updated resume once webpage is on domain, and implement an alert/toast to warn users that a resume is about to be downloaded onto their system */}
-				{/* <a
-					href="/downloads/resume.pdf"
-					download>
-					<CallToActionButton>
-						Download Resume
-					</CallToActionButton>
-				</a> */}
+				<PromptUserAlert />
 			</section>
 		</>
 	);

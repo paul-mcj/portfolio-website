@@ -2,8 +2,8 @@
 import PrimarySectionHeader from "@/components/layout/PrimarySectionHeader";
 import ProjectCard from "@/components/layout/ProjectCard";
 import ImageContainer from "@/components/layout/ImageContainer";
-import CallToActionButton from "@/components/assets/CallToActionButton";
 import SecondaryHeader from "@/components/layout/SecondaryHeader";
+import PromptUserAlert from "@/components/assets/PromptUserAlert";
 
 // images
 import profilePic from "@/public/images/other/profile_pic.jpg";
@@ -15,7 +15,6 @@ export default function Home() {
 	return (
 		<>
 			<section className="flex flex-col gap-y-8 sm:gap-y-12 md:grid md:grid-cols-2 md:grid-rows-1 md:text-base lg:text-lg md:gap-x-8 md:gap-y-0 md:text-left">
-				{/* TODO: once resume is done, add button to grid! */}
 				<div className="md:col-start-2 md:col-end-3 md:place-self-center">
 					<ImageContainer
 						src={profilePic}
@@ -35,20 +34,11 @@ export default function Home() {
 						frontend design using JavaScript and React, to
 						machine learning with Python.
 					</p>
+					<div className="md:self-start">
+						<PromptUserAlert />
+					</div>
 				</div>
 			</section>
-
-			{/* TODO: use actual updated resume once webpage is on domain, and implement an alert/toast to warn users that a resume is about to be downloaded onto their system */}
-			{/* <section className="flex flex-col gap-y-8 mt-16 place-items-center"> */}
-			{/* <a
-					href="/downloads/resume.pdf"
-					download>
-					<CallToActionButton>
-						Download Resume
-					</CallToActionButton>
-				</a> 
-				</section>
-				*/}
 			<section className="grid place-items-center gap-y-8 sm:gap-y-12 mt-16 text-left">
 				<SecondaryHeader title="Featured Works" />
 				<ProjectCard
