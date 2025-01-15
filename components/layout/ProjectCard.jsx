@@ -33,50 +33,51 @@ const ProjectCard = ({
 	return (
 		<article
 			className={
-				"container flex flex-col p-4 gap-2 bg-white shadow-xl shadow-primary_tint_2"
+				"container flex flex-col p-4 gap-2 bg-white shadow-xl shadow-primary_tint_2 md:grid md:grid-cols-3 md:gap-4"
 			}>
-			<a
-				className="text-lg font-bold text-primary"
-				href={websiteLink}
-				target="_blank"
-				rel="noopener noreferrer">
-				<div className="flex items-center">
-					<FontAwesomeIcon
-						className="w-4 h-4 text-primary"
-						icon={faLink}
-					/>
-					<h3 className="text-lg font-bold pl-2 text-primary">
-						{title}
-					</h3>
-				</div>
-			</a>
-			<p>{date}</p>
-			<div className="flex justify-between flex-wrap gap-y-2">
-				{badges}
-			</div>
-			<a
-				className="text-lg font-bold text-primary"
-				href={githubLink}
-				target="_blank"
-				rel="noopener noreferrer">
-				<div className="flex items-center">
-					<FontAwesomeIcon
-						className="w-4 h-4 text-primary"
-						icon={faGithub}
-					/>
-					<h3 className="text-lg font-bold pl-2 text-primary">
-						View repo
-					</h3>
-				</div>
-			</a>
-			<p>{desc}</p>
 			<Image
-				className="hidden sm:block"
+				quality={100}
+				className="hidden md:block md:w-full md:h-2/3 md:object-cover lg:h-full"
 				src={src}
 				alt={alt}
-				width={"100%"}
-				height={"100%"}
 			/>
+			<div className="md:text-base md:col-start-2 md:col-end-4">
+				<a
+					className="text-lg font-bold text-primary"
+					href={websiteLink ? websiteLink : githubLink}
+					target="_blank"
+					rel="noopener noreferrer">
+					<div className="flex items-center">
+						<FontAwesomeIcon
+							className="w-4 h-4 text-primary"
+							icon={faLink}
+						/>
+						<h3 className="text-lg font-bold pl-2 text-primary">
+							{title}
+						</h3>
+					</div>
+				</a>
+				<p className="inline-block py-1 px-3 font-bold rounded-full text-xs text-white bg-black mb-2">
+					{date}
+				</p>
+				<div className="flex flex-wrap gap-2">{badges}</div>
+				<a
+					className="text-lg font-bold text-primary"
+					href={githubLink}
+					target="_blank"
+					rel="noopener noreferrer">
+					<div className="flex items-center">
+						<FontAwesomeIcon
+							className="w-4 h-4 text-primary"
+							icon={faGithub}
+						/>
+						<h3 className="text-lg font-bold pl-2 text-primary">
+							View repo
+						</h3>
+					</div>
+				</a>
+				<p>{desc}</p>
+			</div>
 		</article>
 	);
 };

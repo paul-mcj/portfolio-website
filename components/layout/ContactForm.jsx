@@ -11,6 +11,9 @@ import { useReducer, useEffect } from "react";
 // validator
 import validator from "validator";
 
+// components
+import CallToActionButton from "../assets/CallToActionButton";
+
 // initial form state
 const initialState = {
 	name: "",
@@ -77,9 +80,8 @@ const ContactForm = () => {
 
 		// TODO: send to my email and if it reaches my inbox (can i make sure anything from my website once set up is not spam?) with a good response, then
 		// TODO: alert user that email was sent successfully (otherwise an alter that the email could not be sent needs to show)
-		// TODO: reset the state
-		// dispatch({type: "CLEAR"})
 
+		// reset the contact form state
 		dispatch({ type: "CLEAR" });
 	};
 
@@ -163,17 +165,17 @@ const ContactForm = () => {
 					placeholder="How can I help you?"
 				/>
 			</div>
-			<button
-				className=" p-4 text-lg font-bold text-white bg-primary"
-				type="submit">
-				<div className="flex justify-center items-center gap-x-2">
-					<FontAwesomeIcon
-						icon={faEnvelope}
-						className="w-6 h-6"
-					/>
-					<p>Send</p>
-				</div>
-			</button>
+			<div className="justify-center">
+				<CallToActionButton width={"w-1/2 md:w-1/3"}>
+					<div className="flex justify-center items-center gap-x-2">
+						<FontAwesomeIcon
+							icon={faEnvelope}
+							className="w-6 h-6"
+						/>
+						<p>Send</p>
+					</div>
+				</CallToActionButton>
+			</div>
 		</form>
 	);
 };

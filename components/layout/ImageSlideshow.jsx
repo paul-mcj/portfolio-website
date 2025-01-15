@@ -24,7 +24,7 @@ const ImageSlideshow = () => {
 	}, []);
 
 	return (
-		<>
+		<section>
 			{imagesArray.map((image, index) => (
 				<ImageContainer
 					key={index}
@@ -39,7 +39,7 @@ const ImageSlideshow = () => {
 					}
 				/>
 			))}
-		</>
+		</section>
 	);
 };
 

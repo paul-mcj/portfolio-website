@@ -31,12 +31,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body
-				className={`${quicksand.className} antialiased min-h-screen relative`}>
+				className={`${quicksand.className} antialiased min-h-screen relative xl:px-48 2xl:px-96`}>
 				<PageBackground />
-				<div className="relative z-10">
+				<div className="relative">
 					<MainHeader />
-					<main className="grid opacity-100">
-						<div className="mt-16">{children}</div>
+					<main className="grid opacity-100 place-content-center text-center gap-6 sm:gap-12 md:gap-20 p-6 sm:p-12 md:p-24 pt-24 sm:pt-24 md:pt-48 sm:text-xl md:text-2xl">
+						{children}
 					</main>
 					<Footer />
 				</div>

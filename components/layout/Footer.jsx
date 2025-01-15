@@ -8,7 +8,7 @@ import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
 	return (
-		<footer className="flex flex-col justify-center text-center gap-y-2 mt-32 bg-gradient-to-t from-stone-400 to-transparent">
+		<footer className="flex flex-col justify-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 to-transparent">
 			<ul className="flex justify-evenly ">
 				<li>
 					<a

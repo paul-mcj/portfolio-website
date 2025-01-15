@@ -14,13 +14,13 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const MainHeader = () => {
+	const pathname = usePathname();
+
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const [animationMenuName, setAnimationMenuName] = useState("");
 
 	const [animationItemName, setAnimationItemName] = useState("");
-
-	const pathname = usePathname();
 
 	const [prevPathName, setPrevPathName] = useState(pathname);
 
@@ -56,7 +56,7 @@ const MainHeader = () => {
 	const hamburgerButton = (
 		<button
 			onClick={toggleMobileMenu}
-			className="sm:hidden p-4 focus:outline-none"
+			className="md:hidden p-4 focus:outline-none"
 			aria-label="Toggle mobile navigation menu">
 			<FontAwesomeIcon
 				className="w-8 h-8"
@@ -69,7 +69,7 @@ const MainHeader = () => {
 	const closeButton = (
 		<button
 			onClick={toggleMobileMenu}
-			className="sm:hidden focus:outline-none"
+			className="md:hidden focus:outline-none"
 			aria-label="Toggle mobile navigation menu">
 			<FontAwesomeIcon
 				className="w-8 h-8"
@@ -84,7 +84,7 @@ const MainHeader = () => {
 			<li className="self-end text-black mt-48">{closeButton}</li>
 
 			<li className={`animate-home_delay_enter`}>
-				{/* <li className={`animate-home_delay_${animationItemName}`}> */}
+				{/* FIXME: <li className={`animate-home_delay_${animationItemName}`}> */}
 				<Link href="/">Home</Link>
 			</li>
 
@@ -102,27 +102,30 @@ const MainHeader = () => {
 		</ul>
 	);
 
+	const hoverEffect =
+		"ease-in-out delay-25 hover:scale-125 duration-500 hover:text-white";
+
 	// for larger screens
 	const normalNavigationMenu = (
-		<ul className=" hidden sm:flex space-x-4 p-4">
-			<li>
+		<ul className="hidden md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl font-bold shadow-md shadow-primary_tint_3 absolute text-primary_tint_3">
+			<li className={hoverEffect}>
 				<Link href="/">Home</Link>
 			</li>
-			<li>
+			<li className={hoverEffect}>
 				<Link href="/about">About</Link>
 			</li>
-			<li>
+			<li className={hoverEffect}>
 				<Link href="/projects">Projects</Link>
 			</li>
-			<li>
+			<li className={hoverEffect}>
 				<Link href="/contact">Contact</Link>
 			</li>
 		</ul>
 	);
 
 	return (
-		<header className="container fixed z-20">
-			<nav className="flex justify-end sm:flex-none relative">
+		<header className="container fixed z-20 min-w-full xl:px-48 2xl:px-96 xl:left-0">
+			<nav className="flex justify-end md:flex-none relative">
 				{normalNavigationMenu}
 				{!isMobileMenuOpen && hamburgerButton}
 				{isMobileMenuOpen && mobileLayout}

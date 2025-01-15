@@ -124,7 +124,8 @@ export default {
 				}
 			},
 			boxShadow: {
-				cta: "0 20px 10px -10px"
+				cta: "0 20px 10px -10px",
+				cta_grow: "0 25px 20px -5px rgb(37, 70, 91)"
 			}
 		}
 	},
