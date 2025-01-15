@@ -65,12 +65,13 @@ const reducer = (state, action) => {
 const ContactForm = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	useEffect(() => {
-		// Log state after it has been updated (after re-render)
-		console.log("State after re-render:", state);
-	}, [state]);
+	// FIXME: delete useeffect??
+	// useEffect(() => {
+	// Log state after it has been updated (after re-render)
+	// console.log("State after re-render:", state);
+	// }, [state]);
 
-	const handleOnSubmit = (e) => {
+	const handleOnSubmit = async (e) => {
 		e.preventDefault();
 
 		const nameIsValid = validateFullName(state.name);
@@ -82,22 +83,42 @@ const ContactForm = () => {
 			return;
 		}
 
-		// TODO: send to my email and if it reaches my inbox (can i make sure anything from my website once set up is not spam?) with a good response, then
-		// TODO: alert user that email was sent successfully (otherwise an alter that the email could not be sent needs to show)
-		toast("Email sent successfully!", {
-			position: "top-center",
-			autoClose: 5000,
-			hideProgressBar: false,
-			closeOnClick: false,
-			pauseOnHover: false,
-			draggable: false,
-			progress: undefined,
-			theme: "dark"
-			// transition: Flip
-		});
+		try {
+			const res = await fetch("/api/send-email", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(state)
+			});
 
-		// reset the contact form state
-		dispatch({ type: "CLEAR" });
+			const data = await res.json();
+			console.log(data);
+
+			if (res.status === 200) {
+				console.log("res is 200");
+				// TODO: send to my email and if it reaches my inbox (can i make sure anything from my website once set up is not spam?) with a good response, then
+				// TODO: alert user that email was sent successfully (otherwise an alter that the email could not be sent needs to show)
+				// toast("Email sent successfully!", {
+				// 	position: "top-center",
+				// 	autoClose: 5000,
+				// 	hideProgressBar: false,
+				// 	closeOnClick: false,
+				// 	pauseOnHover: false,
+				// 	draggable: false,
+				// 	progress: undefined,
+				// 	theme: "dark"
+				// 	// transition: Flip
+				// });
+
+				// // reset the contact form state
+				// dispatch({ type: "CLEAR" });
+			} else {
+				// TODO: toast error
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
