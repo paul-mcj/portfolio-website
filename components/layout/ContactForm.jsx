@@ -83,7 +83,7 @@ const ContactForm = () => {
 			return;
 		}
 
-		// console.log(JSON.stringify(state));
+		console.log(JSON.stringify(state));
 		// {"name":"camo","email":"a@a.ca","message":"chubby wubby"}
 
 		try {
@@ -94,6 +94,7 @@ const ContactForm = () => {
 				},
 				body: JSON.stringify(state)
 			});
+			console.log(body);
 
 			if (res.status === 200) {
 				console.log("res is 200");
@@ -115,6 +116,7 @@ const ContactForm = () => {
 				// dispatch({ type: "CLEAR" });
 			} else {
 				// TODO: toast error
+				console.log("there is an error......");
 			}
 		} catch (error) {
 			console.log(error);
