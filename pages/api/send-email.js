@@ -1,9 +1,8 @@
-import { nodemailer } from "nodemailer";
-// const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 // Create a transporter object using SMTP transport
 const transporter = nodemailer.createTransport({
-	service: "mail.paulmcjannet.com ",
+	host: process.env.EMAIL_HOST,
 	port: 465,
 	secure: true,
 	auth: {
@@ -12,15 +11,15 @@ const transporter = nodemailer.createTransport({
 	}
 });
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
+	const { name, email, message } = req.body;
+
 	// Only allow POST requests
 	if (req.method !== "POST") {
 		return res.status(405).json({ message: "Method Not Allowed" });
 	}
 
-	const { name, email, message } = req.body;
-
-	// Basic validation
+	// Basic validation (already checked for validation in ContactForm, but doing here as well for extra certainty)
 	if (!name || !email || !message) {
 		return res.status(400).json({ message: "Missing required fields" });
 	}
@@ -28,7 +27,8 @@ export default async function handler(req, res) {
 	try {
 		const mailOptions = {
 			from: email,
-			to: process.env.TARGET_EMAIL, // The email where the form will be sent to
+			// to: process.env.EMAIL_USER,
+			to: "gator username",
 			subject: `Message from ${name}`,
 			text: message
 		};
@@ -38,8 +38,16 @@ export default async function handler(req, res) {
 
 		// Respond to the client
 		res.status(200).json({ message: "Email sent successfully!" });
+
+		return sendEmail;
 	} catch (error) {
-		console.error("Error sending email:", error);
-		res.status(500).json({ message: "Error sending email" });
+		res.status(500).json({ message: "Error sending email", error });
 	}
-}
+};
+
+export default handler;
+
+// export default function handler(req, res) {
+// 	// Example response
+// 	res.status(200).json({ message: "Email sent successfully" });
+// }

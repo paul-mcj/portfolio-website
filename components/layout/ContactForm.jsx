@@ -83,6 +83,9 @@ const ContactForm = () => {
 			return;
 		}
 
+		// console.log(JSON.stringify(state));
+		// {"name":"camo","email":"a@a.ca","message":"chubby wubby"}
+
 		try {
 			const res = await fetch("/api/send-email", {
 				method: "POST",
@@ -91,9 +94,6 @@ const ContactForm = () => {
 				},
 				body: JSON.stringify(state)
 			});
-
-			const data = await res.json();
-			console.log(data);
 
 			if (res.status === 200) {
 				console.log("res is 200");
