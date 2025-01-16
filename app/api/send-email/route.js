@@ -1,8 +1,8 @@
-// nodemailer
-const nodemailer = require("nodemailer");
-
 // explicitly set runtime for serverless function
 export const runtime = "nodejs";
+
+// nodemailer
+import nodemailer from "nodemailer";
 
 export const POST = async (req) => {
 	try {
