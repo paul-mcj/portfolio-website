@@ -1,5 +1,5 @@
 // nodemailer
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 // explicitly set runtime for serverless function
 export const runtime = "nodejs";
