@@ -2,7 +2,7 @@
 "use client";
 
 // react
-import { useReducer, useEffect } from "react";
+import { useReducer } from "react";
 
 // validator
 import validator from "validator";
@@ -65,12 +65,6 @@ const reducer = (state, action) => {
 const ContactForm = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	// FIXME: delete useeffect??
-	// useEffect(() => {
-	// Log state after it has been updated (after re-render)
-	// console.log("State after re-render:", state);
-	// }, [state]);
-
 	const handleOnSubmit = async (e) => {
 		e.preventDefault();
 
@@ -78,14 +72,12 @@ const ContactForm = () => {
 		const emailIsValid = validateEmail(state.email);
 		const messageIsValid = validateMessage(state.message);
 
-		// invalid form criteria
+		// invalid form criteria; exit function if true
 		if (!nameIsValid || !emailIsValid || !messageIsValid) {
 			return;
 		}
 
-		console.log(JSON.stringify(state));
-		// {"name":"camo","email":"a@a.ca","message":"chubby wubby"}
-
+		// post to api serverless function
 		try {
 			const res = await fetch("/api/send-email", {
 				method: "POST",
@@ -94,32 +86,92 @@ const ContactForm = () => {
 				},
 				body: JSON.stringify(state)
 			});
-			console.log(body);
 
+			// if successful response
 			if (res.status === 200) {
-				console.log("res is 200");
-				// TODO: send to my email and if it reaches my inbox (can i make sure anything from my website once set up is not spam?) with a good response, then
-				// TODO: alert user that email was sent successfully (otherwise an alter that the email could not be sent needs to show)
-				// toast("Email sent successfully!", {
-				// 	position: "top-center",
-				// 	autoClose: 5000,
-				// 	hideProgressBar: false,
-				// 	closeOnClick: false,
-				// 	pauseOnHover: false,
-				// 	draggable: false,
-				// 	progress: undefined,
-				// 	theme: "dark"
-				// 	// transition: Flip
-				// });
+				toast(
+					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
+						Thank-you for reaching out! I will get back to you
+						shortly!
+					</p>,
+					{
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: false,
+						pauseOnHover: false,
+						draggable: false,
+						progress: undefined,
+						theme: "dark"
+						// transition: Flip
+					}
+				);
+			}
 
-				// // reset the contact form state
-				// dispatch({ type: "CLEAR" });
-			} else {
-				// TODO: toast error
-				console.log("there is an error......");
+			// if validation error response
+			if (res.status === 400) {
+				toast(
+					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
+						The server could not process your submission.
+						Please try again later.
+					</p>,
+					{
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: false,
+						pauseOnHover: false,
+						draggable: false,
+						progress: undefined,
+						theme: "dark"
+						// transition: Flip
+					}
+				);
+			}
+
+			// if general server error
+			if (res.status === 500) {
+				toast(
+					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
+						`The server encountered an unexpected error. $
+						{res.error}. Please try again later.`
+					</p>,
+					{
+						position: "top-center",
+						autoClose: 5000,
+						hideProgressBar: false,
+						closeOnClick: false,
+						pauseOnHover: false,
+						draggable: false,
+						progress: undefined,
+						theme: "dark"
+						// transition: Flip
+					}
+				);
 			}
 		} catch (error) {
-			console.log(error);
+			toast(
+				<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
+					`There has been an error. ${error}. Please try again
+					later.`
+				</p>,
+				{
+					position: "top-center",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: false,
+					draggable: false,
+					progress: undefined,
+					theme: "dark"
+					// transition: Flip
+				}
+			);
+		} finally {
+			// reset the contact form state
+			dispatch({ type: "CLEAR" });
+
+			// TODO: disable the button for 5 secs and update css to show that
 		}
 	};
 
@@ -213,7 +265,7 @@ const ContactForm = () => {
 						<p>Send</p>
 					</div>
 				</CallToActionButton>
-				<AlertContainer autoCloseTime={5000} />
+				<AlertContainer type="contact-form" />
 			</div>
 		</form>
 	);

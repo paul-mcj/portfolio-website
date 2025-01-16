@@ -3,14 +3,13 @@ import { ToastContainer } from "react-toastify";
 
 import PropTypes from "prop-types";
 
-const AlertContainer = ({ autoCloseTime }) => {
+const AlertContainer = ({ type }) => {
 	return (
-		//NOTE: need props depending on if its contact form or download button, so the toast functions can work properly on each component
-
+		// toast will change functionality and appearance depending on if parent component is the contact form or a download button
 		<ToastContainer
 			position="top-center"
-			autoClose={autoCloseTime ? autoCloseTime : false}
-			hideProgressBar={false}
+			autoClose={type === "contact-form" ? 5000 : false}
+			hideProgressBar={type === "contact-form" ? false : true}
 			newestOnTop={false}
 			closeOnClick={false}
 			rtl={false}
@@ -25,7 +24,7 @@ const AlertContainer = ({ autoCloseTime }) => {
 };
 
 AlertContainer.propTypes = {
-	autoCloseTime: PropTypes.number
+	type: PropTypes.string
 };
 
 export default AlertContainer;

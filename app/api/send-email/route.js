@@ -1,51 +1,42 @@
+// nodemailer
 import nodemailer from "nodemailer";
 
-console.log(process.env.EMAIL_HOST);
-
-export async function POST(req) {
+export const POST = async (req) => {
 	try {
-		// Parse JSON body
+		// parse JSON body
 		const { name, email, message } = await req.json();
 
-		// Check if all required fields are present
+		// Check if all required fields are present (extra validation is on the front-end as well)
 		if (!name || !email || !message) {
-			return new Response(
-				JSON.stringify({ message: "Missing required fields" }),
-				{ status: 400 }
-			);
+			return new Response({ status: 400 });
 		}
 
-		// Create a transporter using your SMTP credentials
+		// Create a transporter using SMTP credentials via .env.local variables
 		const transporter = nodemailer.createTransport({
-			host: process.env.EMAIL_HOST, // Example: 'mail.paulmcjannet.com'
-			port: 465, // Example: 465
-			secure: true, // SSL
+			host: process.env.EMAIL_HOST,
+			port: 465,
+			secure: true,
 			auth: {
-				user: process.env.EMAIL_USER, // Example: 'paul@bottle.ca'
+				user: process.env.EMAIL_USER,
 				pass: process.env.EMAIL_PASS
 			}
 		});
 
-		// Send the email to your own email address
+		// craft email
 		const mailOptions = {
-			from: `"Website Contact" <${email}>`, // From user's email
-			to: process.env.EMAIL_USER, // Your email address
-			subject: `Message from ${name}`, // Subject line
-			text: `You received a new message from ${name} (${email}):\n\n${message}` // Message content
+			from: email,
+			to: process.env.EMAIL_USER,
+			subject: `Message from ${name}`,
+			text: message
 		};
 
+		// Send the email to my user domain
 		await transporter.sendMail(mailOptions);
 
-		// Send success response
-		return new Response(
-			JSON.stringify({ message: "Email sent successfully." }),
-			{ status: 200 }
-		);
+		// send success response to client
+		return new Response({ status: 200 });
 	} catch (error) {
-		console.error("Error sending email:", error);
-		return new Response(
-			JSON.stringify({ message: "Internal Server Error" }),
-			{ status: 500 }
-		);
+		// respond with server error
+		return new Response({ status: 500, error });
 	}
-}
+};
