@@ -1,6 +1,9 @@
 // nodemailer
 import nodemailer from "nodemailer";
 
+// explicitly set runtime for serverless function
+export const runtime = "nodejs";
+
 export const POST = async (req) => {
 	try {
 		// parse JSON body
