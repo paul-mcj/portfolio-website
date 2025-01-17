@@ -5,6 +5,7 @@ import FooterIcon from "../assets/FooterIcon";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
 	return (
@@ -32,6 +33,11 @@ const Footer = () => {
 						target="_blank"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faNewspaper} />
+					</a>
+				</li>
+				<li>
+					<a href="mailto:paul@paulmcjannet.com">
+						<FooterIcon iconName={faPaperPlane} />
 					</a>
 				</li>
 			</ul>

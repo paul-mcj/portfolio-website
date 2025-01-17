@@ -77,6 +77,8 @@ const ContactForm = () => {
 			return;
 		}
 
+		// TODO: add a spinner on adn disable the send button and grey it out via css (go back to normal in the finally block)
+
 		// post to api serverless function
 		try {
 			const res = await fetch("/api/send-email", {
@@ -89,6 +91,7 @@ const ContactForm = () => {
 
 			// if successful response
 			if (res.status === 200) {
+				console.log("Email sent successfully");
 				toast(
 					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
 						Thank-you for reaching out! I will get back to you
@@ -110,6 +113,7 @@ const ContactForm = () => {
 
 			// if validation error response
 			if (res.status === 400) {
+				console.error("Could not process email");
 				toast(
 					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
 						The server could not process your submission.
@@ -131,10 +135,11 @@ const ContactForm = () => {
 
 			// if general server error
 			if (res.status === 500) {
+				console.error("Server error");
 				toast(
 					<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
-						`The server encountered an unexpected error. $
-						{res.error}. Please try again later.`
+						The server encountered an unexpected error. Please
+						try again later.
 					</p>,
 					{
 						position: "top-center",
@@ -150,10 +155,10 @@ const ContactForm = () => {
 				);
 			}
 		} catch (error) {
+			console.error(`General error\n${error}`);
 			toast(
 				<p className="text-center sm:text-sm lg:text-lg p-4 text-secondary">
-					`There has been an error. ${error}. Please try again
-					later.`
+					There has been an error. Please try again later.
 				</p>,
 				{
 					position: "top-center",
@@ -170,8 +175,6 @@ const ContactForm = () => {
 		} finally {
 			// reset the contact form state
 			dispatch({ type: "CLEAR" });
-
-			// TODO: disable the button for 5 secs and update css to show that
 		}
 	};
 

@@ -27,7 +27,8 @@ export const POST = async (req) => {
 
 		// craft email
 		const mailOptions = {
-			from: email,
+			from: process.env.EMAIL_USER,
+			replyTo: email,
 			to: process.env.EMAIL_USER,
 			subject: `Message from ${name}`,
 			text: message
