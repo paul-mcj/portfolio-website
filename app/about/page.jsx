@@ -27,7 +27,7 @@ const AboutPage = () => {
 				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:gap-y-4">
 					<PrimarySectionHeader title="About Me" />
 					<p className="md:mt-8">
-						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-black px-4 py-2">
+						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-black px-4 py-2 hover:animate-about_me">
 							Hey, I'm Paul!
 						</span>{" "}
 						I am an aspiring web developer who loves to learn

@@ -33,7 +33,7 @@ const ProjectCard = ({
 	return (
 		<article
 			className={
-				"container flex flex-col p-4 gap-2 bg-white shadow-xl shadow-primary_tint_2 md:grid md:grid-cols-3 md:gap-4"
+				"container flex flex-col p-4 gap-2 bg-slate-100 shadow-xl shadow-primary_tint_2 md:grid md:grid-cols-3 md:gap-4 ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:bg-white"
 			}>
 			<Image
 				quality={100}

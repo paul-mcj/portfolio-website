@@ -2,7 +2,7 @@
 "use client";
 
 // react
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 // validator
 import validator from "validator";
@@ -10,6 +10,7 @@ import validator from "validator";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 // components
 import CallToActionButton from "@/components/assets/CallToActionButton";
@@ -64,6 +65,7 @@ const reducer = (state, action) => {
 
 const ContactForm = () => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const [isProcessing, setIsProcessing] = useState(false);
 
 	const handleOnSubmit = async (e) => {
 		e.preventDefault();
@@ -77,7 +79,8 @@ const ContactForm = () => {
 			return;
 		}
 
-		// TODO: add a spinner on adn disable the send button and grey it out via css (go back to normal in the finally block)
+		// add a spinner and disable the send button
+		setIsProcessing(() => true);
 
 		// post to api serverless function
 		try {
@@ -175,6 +178,9 @@ const ContactForm = () => {
 		} finally {
 			// reset the contact form state
 			dispatch({ type: "CLEAR" });
+
+			// reset send button to default
+			setIsProcessing(() => false);
 		}
 	};
 
@@ -259,13 +265,22 @@ const ContactForm = () => {
 				/>
 			</div>
 			<div className="justify-center">
-				<CallToActionButton width={"md:w-1/3"}>
+				<CallToActionButton
+					width={"md:w-1/3"}
+					disabled={isProcessing ? true : false}>
 					<div className="flex justify-center items-center gap-x-2">
-						<FontAwesomeIcon
-							icon={faEnvelope}
-							className="w-6 h-6"
-						/>
-						<p>Send</p>
+						{isProcessing ? (
+							<FontAwesomeIcon
+								icon={faSpinner}
+								className="w-6 h-6 animate-spin"
+							/>
+						) : (
+							<FontAwesomeIcon
+								icon={faEnvelope}
+								className="w-6 h-6"
+							/>
+						)}
+						{isProcessing ? <p>Sending...</p> : <p>Send</p>}
 					</div>
 				</CallToActionButton>
 				<AlertContainer type="contact-form" />

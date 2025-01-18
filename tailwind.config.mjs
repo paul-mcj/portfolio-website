@@ -88,7 +88,13 @@ export default {
 				home_delay_exit: "flip_up 1s ease-out",
 				about_delay_exit: "flip_up 0.75s ease-out",
 				projects_delay_exit: "flip_up 0.5s ease-out",
-				contact_delay_exit: "flip_up 0.25s ease-out"
+				contact_delay_exit: "flip_up 0.25s ease-out",
+
+				// about me span:
+				about_me: "about_me 1s ease-in-out infinite",
+
+				// primary section header
+				primary_header_enter: "primary_header_enter 1s ease-in-out"
 			},
 			keyframes: {
 				// slideshow
@@ -121,6 +127,28 @@ export default {
 				flip_up: {
 					"0%": { transform: "rotateX(0deg)", opacity: "1" },
 					"100%": { transform: "rotateX(90deg)", opacity: "0" }
+				},
+
+				// about me span:
+				about_me: {
+					"0%": { transform: "skewX(-12deg)" },
+					"12%": { transform: "skewX(-6deg)", scale: "1.1" },
+					"25%": { transform: "skewX(0deg)" },
+					"37%": { transform: "skewX(6deg)" },
+					"50%": { transform: "skewX(12deg)" },
+					"62%": { transform: "skewX(6deg)" },
+					"75%": { transform: "skewX(0deg)" },
+					"87%": { transform: "skewX(-6deg)", scale: "0.9" },
+					"100%": { transform: "skewX(-12deg)" }
+				},
+
+				// primary section header
+				primary_header_enter: {
+					"0%": { transform: "skewX(0deg)" },
+					"25%": { transform: "skewX(6deg)", scale: "1.1" },
+					"50%": { transform: "skewX(12deg)" },
+					"75%": { transform: "skewX(6deg)", scale: "0.9" },
+					"100%": { transform: "skewX(0deg)", scale: "1" }
 				}
 			},
 			boxShadow: {

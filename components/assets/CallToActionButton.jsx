@@ -1,11 +1,21 @@
 // prop types
 import PropTypes from "prop-types";
 
-const CallToActionButton = ({ children, width, handleOnClick }) => {
+const CallToActionButton = ({ children, width, handleOnClick, disabled }) => {
 	return (
 		<button
+			disabled={disabled}
 			onClick={handleOnClick}
-			className={`w-fit self-center bg-primary py-4 px-6 text-lg font-bold text-primary_tint_3 shadow-cta shadow-primary_tint_3 ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:text-white ${width}`}>
+			className={`w-fit self-center bg-primary py-4 px-6 text-lg font-bold text-primary_tint_3 shadow-cta shadow-primary_tint_3 
+				${width}
+				${
+					disabled &&
+					"bg-primary_tint_3 shadow-none text-white translate-y-0 scale-100"
+				}
+				${
+					!disabled &&
+					"ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:text-white"
+				}  `}>
 			{children}
 		</button>
 	);
@@ -13,7 +23,8 @@ const CallToActionButton = ({ children, width, handleOnClick }) => {
 
 CallToActionButton.PropTypes = {
 	width: PropTypes.string,
-	handleOnClick: PropTypes.func
+	handleOnClick: PropTypes.func,
+	disabled: PropTypes.bool
 };
 
 export default CallToActionButton;
