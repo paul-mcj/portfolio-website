@@ -21,7 +21,7 @@ const AboutPage = () => {
 	return (
 		<>
 			<section className="flex flex-col gap-y-8 sm:gap-y-12 md:grid md:grid-cols-2 md:grid-rows-1 md:text-base lg:text-lg md:gap-x-8 md:gap-y-0 md:text-left">
-				<div className="md:col-start-2 md:col-end-3 md:place-self-center">
+				<div className="md:col-start-2 md:col-end-3">
 					<ImageSlideshow />
 				</div>
 				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:gap-y-4">

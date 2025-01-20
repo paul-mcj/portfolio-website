@@ -25,6 +25,8 @@ const ImageSlideshow = () => {
 
 	return (
 		<section>
+			{/* <section className="relative mb-52"> */}
+			{/* <div className="absolute"> */}
 			{imagesArray.map((image, index) => (
 				<ImageContainer
 					key={index}
@@ -32,13 +34,17 @@ const ImageSlideshow = () => {
 					alt={image.alt}
 					title={image.title}
 					borderColor="border-primary"
-					additionalClasses={
-						index === currentImageIndex
-							? `active animate-fade_out`
-							: "hidden animate-none"
+					activeAnimation={
+						index === currentImageIndex && "animate-fade_out"
+					}
+					isHidden={
+						index !== currentImageIndex &&
+						"hidden animate-none"
 					}
 				/>
 			))}
+			{/* </div> */}
+			{/* </section> */}
 		</section>
 	);
 };

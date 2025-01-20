@@ -72,7 +72,7 @@ export default {
 			},
 			animation: {
 				// slideshow
-				fade_out: "fade_out 5s ease-in-out",
+				fade_out: "fade_out 5.0s ease-in-out",
 
 				// nav menu enter
 				roll_down: "roll_down 0.5s cubic-bezier(0,1,1,1)",
@@ -100,8 +100,8 @@ export default {
 				// slideshow
 				fade_out: {
 					"0%": { opacity: "0" },
-					"20%": { opacity: "1" },
-					"80%": { opacity: "1" },
+					"25%": { opacity: "1" },
+					"75%": { opacity: "1" },
 					"100%": { opacity: "0" }
 				},
 

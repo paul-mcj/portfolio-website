@@ -22,7 +22,7 @@ const ProjectsPage = () => {
 					skills={[
 						"react",
 						"tailwindcss",
-						"rest api",
+						"json",
 						"framer motion"
 					]}
 					src={beerOrderApp}

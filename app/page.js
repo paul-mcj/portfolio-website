@@ -47,7 +47,7 @@ export default function Home() {
 					skills={[
 						"react",
 						"tailwindcss",
-						"rest api",
+						"json",
 						"framer motion"
 					]}
 					// TODO: add pic, fix vercel site
