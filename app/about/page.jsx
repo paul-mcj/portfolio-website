@@ -21,10 +21,10 @@ const AboutPage = () => {
 	return (
 		<>
 			<section className="flex flex-col gap-y-8 sm:gap-y-12 md:grid md:grid-cols-2 md:grid-rows-1 md:text-base lg:text-lg md:gap-x-8 md:gap-y-0 md:text-left">
-				<div className="md:col-start-2 md:col-end-3">
+				<section className="md:col-start-2 md:col-end-3">
 					<ImageSlideshow />
-				</div>
-				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:gap-y-4">
+				</section>
+				<section className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:gap-y-4">
 					<PrimarySectionHeader title="About Me" />
 					<p className="md:mt-8">
 						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-black px-4 py-2 hover:animate-about_me">
@@ -41,7 +41,7 @@ const AboutPage = () => {
 						mostly either on the backend or to use with
 						machine learning.
 					</p>
-				</div>
+				</section>
 			</section>
 			<section className="flex flex-col gap-y-8 md:px-32 mt-16">
 				<SecondaryHeader title="Current Web Tech Stack" />

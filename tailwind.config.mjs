@@ -91,10 +91,11 @@ export default {
 				contact_delay_exit: "flip_up 0.25s ease-out",
 
 				// about me span:
-				about_me: "about_me 1s ease-in-out infinite",
+				about_me: "about_me 0.5s ease-in-out infinite",
 
 				// primary section header
-				primary_header_enter: "primary_header_enter 1s ease-in-out"
+				primary_header_enter:
+					"primary_header_enter 2s ease-in-out 0s"
 			},
 			keyframes: {
 				// slideshow
@@ -144,11 +145,27 @@ export default {
 
 				// primary section header
 				primary_header_enter: {
-					"0%": { transform: "skewX(0deg)" },
-					"25%": { transform: "skewX(6deg)", scale: "1.1" },
+					"0%": {
+						transform: "skewX(0deg)",
+						scale: "0.9",
+						filter: "drop-shadow(0 0 0 #4481a7)"
+					},
+					"25%": {
+						transform: "skewX(6deg)",
+						scale: "1.1",
+						filter: "drop-shadow(7px 7px 3px #2a9ee6)"
+					},
 					"50%": { transform: "skewX(12deg)" },
-					"75%": { transform: "skewX(6deg)", scale: "0.9" },
-					"100%": { transform: "skewX(0deg)", scale: "1" }
+					"75%": {
+						transform: "skewX(6deg)",
+						scale: "0.9",
+						filter: "drop-shadow(0px 4px 1px #4481a7)"
+					},
+					"100%": {
+						transform: "skewX(0deg)",
+						scale: "1",
+						filter: "drop-shadow(0 0 0 #4481a7)"
+					}
 				}
 			},
 			boxShadow: {

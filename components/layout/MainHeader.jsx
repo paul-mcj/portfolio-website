@@ -84,7 +84,7 @@ const MainHeader = () => {
 			<li className="self-end text-black mt-48">{closeButton}</li>
 
 			<li className={`animate-home_delay_enter`}>
-				{/* FIXME: <li className={`animate-home_delay_${animationItemName}`}> */}
+				{/*  <li className={`animate-home_delay_${animationItemName}`}> */}
 				<Link href="/">Home</Link>
 			</li>
 

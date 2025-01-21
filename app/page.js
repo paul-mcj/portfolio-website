@@ -50,7 +50,6 @@ export default function Home() {
 						"json",
 						"framer motion"
 					]}
-					// TODO: add pic, fix vercel site
 					src={beerOrderApp}
 					desc="React built website that uses JSON data to gather beer information allowing users to realistically add items to their cart and make purchases."
 					alt="Screenshot of e-Commerce store that has several beers available for purchase"
@@ -61,7 +60,6 @@ export default function Home() {
 					title="Speech Recognition Maze"
 					date="Oct 2023"
 					skills={["react", "tailwindcss", "vite", "tensorflow"]}
-					// TODO: add pic, fix vercel site
 					src={speechRecognitionMaze}
 					desc="Custom website built with React that randomly generates mazes. Project uses Google's Teachable Machine web-based tool to build audio models, which are used to help users complete the mazes with their microphone."
 					alt="Screenshot of randomly generated maze with blue background and microphone button to start the application"

@@ -43,6 +43,4 @@ const imagesArray = [
 // array of image paths
 const imagePaths = imagesArray.map((image) => image.src);
 
-console.log(imagePaths);
-
 export { imagesArray, imagePaths };

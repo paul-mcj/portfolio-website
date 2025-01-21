@@ -15,7 +15,6 @@
 	--toastify-color-progress-light: #171717;
 	--toastify-color-progress-bgo: 0;
 
-	/* TODO: swap for dark mode, and make sure all instances of "black" and "white" change to these vars! */
 	--background: #ffffff;
 	--foreground: #171717;
 }

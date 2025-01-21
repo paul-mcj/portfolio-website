@@ -20,6 +20,7 @@ const ImageContainer = ({
 				src={src}
 				alt={alt}
 				title={title}
+				priority
 			/>
 		</div>
 	);

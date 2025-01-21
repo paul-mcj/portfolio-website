@@ -18,15 +18,13 @@ const ImageSlideshow = () => {
 			setCurrentImageIndex((prevIndex) =>
 				prevIndex < imagesArray.length - 1 ? prevIndex + 1 : 0
 			);
-		}, 5000);
+		}, 4750);
 
 		return () => clearInterval(interval);
 	}, []);
 
 	return (
-		<section>
-			{/* <section className="relative mb-52"> */}
-			{/* <div className="absolute"> */}
+		<>
 			{imagesArray.map((image, index) => (
 				<ImageContainer
 					key={index}
@@ -43,9 +41,7 @@ const ImageSlideshow = () => {
 					}
 				/>
 			))}
-			{/* </div> */}
-			{/* </section> */}
-		</section>
+		</>
 	);
 };
 
