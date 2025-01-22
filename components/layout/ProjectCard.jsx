@@ -33,49 +33,57 @@ const ProjectCard = ({
 	return (
 		<article
 			className={
-				"container flex flex-col p-4 gap-2 bg-slate-100 shadow-xl shadow-primary_tint_2 md:grid md:grid-cols-3 md:gap-4 ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:bg-white"
+				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 hover:bg-background hover:dark:bg-slate-500 md:grid md:grid-cols-3 md:gap-4 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-project_card_grow"
 			}>
-			<Image
-				quality={100}
-				className="hidden md:block md:w-full md:h-2/3 md:object-cover lg:h-full"
-				src={src}
-				alt={alt}
-			/>
-			<div className="md:text-base md:col-start-2 md:col-end-4">
-				<a
-					className="text-lg font-bold text-primary"
-					href={websiteLink ? websiteLink : githubLink}
-					target="_blank"
-					rel="noopener noreferrer">
-					<div className="flex items-center">
-						<FontAwesomeIcon
-							className="w-4 h-4 text-primary"
-							icon={faLink}
-						/>
-						<h3 className="text-lg font-bold pl-2 text-primary">
-							{title}
-						</h3>
+			<a
+				className="hover:opacity-100"
+				href={websiteLink ? websiteLink : githubLink}
+				target="_blank"
+				rel="noopener noreferrer">
+				<Image
+					quality={100}
+					className="hidden md:block md:w-full md:h-2/3 md:object-cover lg:h-full"
+					src={src}
+					alt={alt}
+				/>
+			</a>
+			<div className="md:text-base md:col-start-2 md:col-end-4 flex flex-col">
+				<div className="inline-flex">
+					<div className="text-lg font-bold text-primary hover:text-primary_tint_2">
+						<a
+							href={websiteLink ? websiteLink : githubLink}
+							target="_blank"
+							rel="noopener noreferrer">
+							<div className="flex items-center">
+								<FontAwesomeIcon
+									className="w-4 h-4"
+									icon={faLink}
+								/>
+								<h3 className="pl-2">{title}</h3>
+							</div>
+						</a>
 					</div>
-				</a>
-				<p className="inline-block py-1 px-3 font-bold rounded-full text-xs text-white bg-black mb-2">
+				</div>
+				<p className="w-fit py-1 px-3 font-bold rounded-full text-xs text-background bg-foreground mb-2">
 					{date}
 				</p>
 				<div className="flex flex-wrap gap-2">{badges}</div>
-				<a
-					className="text-lg font-bold text-primary"
-					href={githubLink}
-					target="_blank"
-					rel="noopener noreferrer">
-					<div className="flex items-center">
-						<FontAwesomeIcon
-							className="w-4 h-4 text-primary"
-							icon={faGithub}
-						/>
-						<h3 className="text-lg font-bold pl-2 text-primary">
-							View repo
-						</h3>
+				<div className="inline-flex">
+					<div className="text-lg font-bold text-primary hover:text-primary_tint_2">
+						<a
+							href={githubLink}
+							target="_blank"
+							rel="noopener noreferrer">
+							<div className="flex items-center">
+								<FontAwesomeIcon
+									className="w-4 h-4"
+									icon={faGithub}
+								/>
+								<h3 className="pl-2">View repo</h3>
+							</div>
+						</a>
 					</div>
-				</a>
+				</div>
 				<p>{desc}</p>
 			</div>
 		</article>

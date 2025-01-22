@@ -23,7 +23,7 @@ export default function Home() {
 						borderColor="border-primary"
 					/>
 				</div>
-				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center md:gap-y-8">
+				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center md:gap-y-8 ">
 					<PrimarySectionHeader title="Hi, I'm Paul, Web Developer" />
 					<p>
 						Based in Ontario, Canada. I transform ideas into

@@ -10,11 +10,11 @@ const CallToActionButton = ({ children, width, handleOnClick, disabled }) => {
 				${width}
 				${
 					disabled &&
-					"bg-primary_tint_3 shadow-none text-white translate-y-0 scale-100"
+					"bg-primary_tint_3 shadow-none text-background translate-y-0 scale-100"
 				}
 				${
 					!disabled &&
-					"ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:text-white"
+					"ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:text-background"
 				}  `}>
 			{children}
 		</button>

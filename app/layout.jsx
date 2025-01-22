@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body
-				className={`${quicksand.className} antialiased min-h-screen relative xl:px-48 2xl:px-96 selection:bg-secondary selection:text-white`}>
+				className={`${quicksand.className} antialiased min-h-screen relative xl:px-48 2xl:px-96 selection:bg-secondary selection:text-background text-foreground dark:text-background`}>
 				<PageBackground />
 				<div className="relative">
 					<MainHeader />

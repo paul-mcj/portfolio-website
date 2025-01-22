@@ -16,7 +16,7 @@ const ImageContainer = ({
 		<div
 			className={`grid place-items-center ${activeAnimation} ${isHidden}`}>
 			<Image
-				className={`rounded-full border-solid border-4 ${borderColor} w-2/3 md:w-full lg:full shadow-2xl shadow-black`}
+				className={`rounded-full border-solid border-4 ${borderColor} w-2/3 md:w-full lg:full shadow-2xl shadow-foreground`}
 				src={src}
 				alt={alt}
 				title={title}

@@ -22,7 +22,7 @@ const PageBackground = () => {
 			: sparkles;
 
 	return (
-		<div className="absolute w-full h-full inset-0 xl:px-48 2xl:px-96">
+		<div className="absolute w-full h-full inset-0 xl:px-48 2xl:px-96 dark:bg-foreground">
 			<Image
 				quality={100}
 				src={currentBackground}
@@ -31,7 +31,7 @@ const PageBackground = () => {
 				className={`${
 					currentBackground === galaxy
 						? "opacity-100"
-						: "opacity-50"
+						: "opacity-50 dark:opacity-20"
 				} object-cover h-full w-full `}
 			/>
 		</div>

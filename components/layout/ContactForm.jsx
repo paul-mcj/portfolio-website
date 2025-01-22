@@ -189,7 +189,7 @@ const ContactForm = () => {
 			onSubmit={handleOnSubmit}
 			id="contact-form"
 			className={
-				"container flex flex-col p-4 gap-y-6 text-xl bg-white shadow-xl shadow-primary_tint_2"
+				"container flex flex-col p-4 gap-y-6 text-foreground dark:text-background text-xl bg-background dark:bg-slate-600 shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3"
 			}>
 			<div className="flex flex-col content-center gap-x-2 text-left">
 				<label
@@ -205,7 +205,7 @@ const ContactForm = () => {
 							payload: { name: e.target.value }
 						})
 					}
-					className="border border-primary p-2"
+					className="border border-primary p-2 dark:bg-foreground dark:text-background"
 					placeholder="Full Name"
 					maxLength="100"
 					required
@@ -229,7 +229,7 @@ const ContactForm = () => {
 							payload: { email: e.target.value }
 						})
 					}
-					className="border border-primary p-2"
+					className="border border-primary p-2 dark:bg-foreground dark:text-background"
 					placeholder="example@domain.com"
 					maxLength="100"
 					required
@@ -253,7 +253,7 @@ const ContactForm = () => {
 							payload: { message: e.target.value }
 						})
 					}
-					className="border border-primary p-2"
+					className="border border-primary p-2 dark:bg-foreground dark:text-background"
 					form="contact-form"
 					name="contact-message"
 					id="contact-message"

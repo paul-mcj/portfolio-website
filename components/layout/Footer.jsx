@@ -9,8 +9,8 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
 	return (
-		<footer className="flex flex-col justify-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 to-transparent">
-			<ul className="flex justify-evenly ">
+		<footer className="flex flex-col justify-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
+			<ul className="flex place-content-center gap-x-12">
 				<li>
 					<a
 						href="https://github.com/paul-mcj/"

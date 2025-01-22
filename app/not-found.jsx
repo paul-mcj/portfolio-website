@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const NotFound = () => {
 	return (
-		<section className="grid place-items-center text-center gap-y-32 mt-16 text-white">
+		<section className="grid place-items-center text-center gap-y-32 mt-16 text-background">
 			<div className="flex flex-col gap-y-8">
 				<PrimarySectionHeader title="404 Error" />
 				<SecondaryHeader title="Page Not Found" />

@@ -2,6 +2,7 @@ import { transform } from "next/dist/build/swc/generated-native";
 
 /** @type {import('tailwindcss').Config} */
 export default {
+	darkMode: "selector",
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -57,13 +58,12 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "var(--background)",
-				foreground: "var(--foreground)",
+				background: "var(--main_white)",
+				foreground: "var(--main_black)",
 				primary: "var(--primary)",
 				primary_tint: "var(--primary_tint)",
 				primary_tint_2: "var(--primary_tint_2)",
 				primary_tint_3: "var(--primary_tint_3)",
-				primary_tone: "var(--primary_tone)",
 				secondary: "var(--secondary)"
 			},
 			fontFamily: {
@@ -170,7 +170,8 @@ export default {
 			},
 			boxShadow: {
 				cta: "0 20px 10px -10px",
-				cta_grow: "0 25px 20px -5px rgb(37, 70, 91)"
+				cta_grow: "0 25px 20px -5px rgb(37, 70, 91)",
+				project_card_grow: "0 25px 20px -5px rgb(42, 158, 230)"
 			}
 		}
 	},
