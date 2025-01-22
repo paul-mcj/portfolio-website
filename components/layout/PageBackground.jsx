@@ -30,7 +30,7 @@ const PageBackground = () => {
 				priority
 				className={`${
 					currentBackground === galaxy
-						? "opacity-100"
+						? "opacity-1 dark:opacity-50"
 						: "opacity-50 dark:opacity-20"
 				} object-cover h-full w-full `}
 			/>
