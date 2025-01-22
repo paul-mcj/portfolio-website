@@ -39,7 +39,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-			<section className="grid place-items-center gap-y-8 sm:gap-y-12 mt-16 text-left">
+			<section className="grid place-items-center gap-y-12 mt-16 text-left px-4 md:px-0">
 				<SecondaryHeader title="Featured Works" />
 				<ProjectCard
 					title="Beer Order App"

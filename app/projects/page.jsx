@@ -14,7 +14,7 @@ import cryptoCalculator from "@/public/images/project_screenshots/crypto-calcula
 const ProjectsPage = () => {
 	return (
 		<>
-			<section className="grid place-items-center gap-y-8 sm:gap-y-12 text-left md:text-base lg:text-lg">
+			<section className="grid place-items-center gap-y-12 text-left px-4 md:px-0">
 				<PrimarySectionHeader title="My Projects" />
 				<ProjectCard
 					title="Beer Order App"
