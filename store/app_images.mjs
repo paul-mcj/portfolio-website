@@ -1,5 +1,4 @@
 // images
-import bikes from "@/public/images/slideshow/bikes.jpg";
 import canoeing from "@/public/images/slideshow/canoeing.jpeg";
 import florida from "@/public/images/slideshow/florida.jpg";
 import ice_fishing from "@/public/images/slideshow/ice_fishing.jpg";
@@ -32,11 +31,6 @@ const imagesArray = [
 		src: canoeing,
 		alt: "Paul with red and yellow backpacks next to a canoe in the forest",
 		title: "Canoe Trip"
-	},
-	{
-		src: bikes,
-		alt: "Paul in green motocross helmet and best friend Alex in orange helmet on tall mountain with clouds in background",
-		title: "Biking in Maui, HI"
 	}
 ];
 

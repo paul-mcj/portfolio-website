@@ -50,7 +50,7 @@ const Badge = ({ title }) => {
 				title
 			)}-600 border-${color(title)}-600 bg-${color(
 				title
-			)}-400 text-${color(title)}-900`}>
+			)}-400 dark:text-foreground`}>
 			{title.toUpperCase()}
 		</span>
 	);

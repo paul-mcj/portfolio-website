@@ -15,6 +15,7 @@ const Footer = () => {
 					<a
 						href="https://github.com/paul-mcj/"
 						target="_blank"
+						aria-label="Go to Paul McJannet's Github Page"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faGithub} />
 					</a>
@@ -23,6 +24,7 @@ const Footer = () => {
 					<a
 						href="https://www.linkedin.com/in/paul-mcjannet/"
 						target="_blank"
+						aria-label="Go to Paul McJannet's LinkedIn Profile"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faLinkedinIn} />
 					</a>
@@ -31,12 +33,15 @@ const Footer = () => {
 					<a
 						href="https://www.clippings.me/paulmcjannet"
 						target="_blank"
+						aria-label="Go to Paul McJannet's Clippings Page"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faNewspaper} />
 					</a>
 				</li>
 				<li>
-					<a href="mailto:paul@paulmcjannet.com">
+					<a
+						href="mailto:paul@paulmcjannet.com"
+						aria-label="Email Paul McJannet">
 						<FooterIcon iconName={faPaperPlane} />
 					</a>
 				</li>
