@@ -65,7 +65,19 @@ const ContactPage = () => {
 			</section>
 			<section className="grid place-items-center text-center gap-y-8 sm:gap-y-12 mt-16">
 				<SecondaryHeader title="Or Send me an Email!" />
-				<ContactForm />
+				{/* TODO: fix hostgator email then add form! */}
+				{/* <ContactForm /> */}
+				<p>
+					If you would like to get in touch, please&nbsp;
+					<a
+						className="font-bold text-secondary
+						ease-in-out delay-25 duration-500 hover:scale-[1.1] hover:-translate-y-4 inline-block"
+						href="mailto:paul@paulmcjannet.com"
+						aria-label="Email Paul McJannet">
+						send me an email&nbsp;
+					</a>
+					and I'll get back to you as soon as I can!
+				</p>
 			</section>
 		</>
 	);
