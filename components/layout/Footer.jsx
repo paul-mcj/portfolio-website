@@ -7,9 +7,20 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
+// next
+import Image from "next/image";
+import Link from "next/link";
+
+// assets
+import mainLogo from "@/public/images/logos/Main_Logo.svg";
+import blackAndWhiteLogo from "@/public/images/logos/BW_Logo.svg";
+import blackAndWhiteAlt from "@/public/images/logos/Alt_BW_Logo.svg";
+import alt1 from "@/public/images/logos/Alt_1_Logo.svg";
+import alt2 from "@/public/images/logos/Alt_2_Logo.svg";
+
 const Footer = () => {
 	return (
-		<footer className="flex flex-col justify-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
+		<footer className="flex flex-col justify-center items-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
 			<ul className="flex place-content-center gap-x-12">
 				<li>
 					<a
@@ -46,9 +57,18 @@ const Footer = () => {
 					</a>
 				</li>
 			</ul>
-			<p className="mb-8">
-				&copy; 2025 Paul McJannet. All rights reserved.
-			</p>
+			<p>&copy; 2025 Paul McJannet. All rights reserved.</p>
+			<div className="mb-8">
+				<Link href="/">
+					<Image
+						quality={100}
+						src={mainLogo}
+						alt="Go to Home Page"
+						width={200}
+						height={200}
+					/>
+				</Link>
+			</div>
 		</footer>
 	);
 };

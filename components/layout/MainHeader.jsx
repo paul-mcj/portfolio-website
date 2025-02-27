@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 // next
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 // icons
@@ -14,6 +15,9 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
+
+// assets
+import blackAndWhiteLogo from "@/public/images/logos/BW_Logo.svg";
 
 const MainHeader = () => {
 	const pathname = usePathname();
@@ -102,6 +106,21 @@ const MainHeader = () => {
 		</button>
 	);
 
+	// logo button goes to homepage
+	const logo = (
+		<Link
+			href="/"
+			className="p-0 m-0">
+			<Image
+				quality={100}
+				src={blackAndWhiteLogo}
+				alt="Go to Home Page"
+				width={100}
+				height={100}
+			/>
+		</Link>
+	);
+
 	// button switches dark mode
 	const darkModeButton = (
 		<li
@@ -165,7 +184,8 @@ const MainHeader = () => {
 
 	// for larger screens
 	const normalNavigationMenu = (
-		<ul className="hidden md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl dark:text-foreground font-bold shadow-md shadow-primary_tint_3 absolute">
+		<ul className="hidden items-center md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl dark:text-foreground font-bold shadow-md shadow-primary_tint_3 absolute">
+			{logo}
 			{darkModeButton}
 			{navigationButtons}
 		</ul>
