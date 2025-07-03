@@ -31,7 +31,9 @@ const ContactPage = () => {
 						<li>
 							<a
 								href="https://github.com/paul-mcj/"
+								aria-label="Visit GitHub profile page for Paul McJannet"
 								target="_blank"
+								alt="Visit GitHub profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -47,7 +49,9 @@ const ContactPage = () => {
 						<li>
 							<a
 								href="https://www.linkedin.com/in/paul-mcjannet/"
+								aria-label="Visit LinkedIn profile page for Paul McJannet"
 								target="_blank"
+								alt="Visit LinkedIn profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -70,13 +74,13 @@ const ContactPage = () => {
 				<p>
 					If you would like to get in touch, please&nbsp;
 					<a
-						className="font-bold text-secondary
-						ease-in-out delay-25 duration-500 hover:scale-[1.1] hover:-translate-y-4 inline-block"
+						className="underline decoration-primary text-primary font-bold md:hover:decoration-primary md:hover:text-primary md:decoration-inherit md:text-inherit"
 						href="mailto:paul@paulmcjannet.com"
-						aria-label="Email Paul McJannet">
-						send me an email&nbsp;
+						alt="Send email to paul@paulmcjannet.com"
+						aria-label="Send email to paul@paulmcjannet.com">
+						send me an email
 					</a>
-					and I'll get back to you as soon as I can!
+					&nbsp;and I'll get back to you as soon as I can!
 				</p>
 			</section>
 		</>

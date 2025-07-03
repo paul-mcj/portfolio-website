@@ -13,20 +13,17 @@ import Link from "next/link";
 
 // assets
 import mainLogo from "@/public/images/logos/Main_Logo.svg";
-import blackAndWhiteLogo from "@/public/images/logos/BW_Logo.svg";
-import blackAndWhiteAlt from "@/public/images/logos/Alt_BW_Logo.svg";
-import alt1 from "@/public/images/logos/Alt_1_Logo.svg";
-import alt2 from "@/public/images/logos/Alt_2_Logo.svg";
 
 const Footer = () => {
 	return (
-		<footer className="flex flex-col justify-center items-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
+		<footer className="relative flex flex-col justify-center items-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
 			<ul className="flex place-content-center gap-x-12">
 				<li>
 					<a
 						href="https://github.com/paul-mcj/"
 						target="_blank"
-						aria-label="Go to Paul McJannet's Github Page"
+						alt="Visit GitHub profile page for Paul McJannet"
+						aria-label="Visit GitHub profile page for Paul McJannet"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faGithub} />
 					</a>
@@ -35,7 +32,8 @@ const Footer = () => {
 					<a
 						href="https://www.linkedin.com/in/paul-mcjannet/"
 						target="_blank"
-						aria-label="Go to Paul McJannet's LinkedIn Profile"
+						alt="Visit LinkedIn profile page for Paul McJannet"
+						aria-label="Visit LinkedIn profile page for Paul McJannet"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faLinkedinIn} />
 					</a>
@@ -44,7 +42,8 @@ const Footer = () => {
 					<a
 						href="https://www.clippings.me/paulmcjannet"
 						target="_blank"
-						aria-label="Go to Paul McJannet's Clippings Page"
+						alt="Visit Clippings profile page for Paul McJannet"
+						aria-label="Visit Clippings profile page for Paul McJannet"
 						rel="noopener noreferrer">
 						<FooterIcon iconName={faNewspaper} />
 					</a>
@@ -52,7 +51,8 @@ const Footer = () => {
 				<li>
 					<a
 						href="mailto:paul@paulmcjannet.com"
-						aria-label="Email Paul McJannet">
+						alt="Send email to paul@paulmcjannet.com"
+						aria-label="Send email to paul@paulmcjannet.com">
 						<FooterIcon iconName={faPaperPlane} />
 					</a>
 				</li>
