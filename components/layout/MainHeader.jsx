@@ -108,17 +108,19 @@ const MainHeader = () => {
 
 	// logo button goes to homepage
 	const logo = (
-		<Link
-			href="/"
-			className="p-0 m-0">
-			<Image
-				quality={100}
-				src={blackAndWhiteLogo}
-				alt="Go to Home Page"
-				width={100}
-				height={100}
-			/>
-		</Link>
+		<li>
+			<Link
+				href="/"
+				className="p-0 m-0">
+				<Image
+					quality={100}
+					src={blackAndWhiteLogo}
+					alt="Go to Home Page"
+					width={100}
+					height={100}
+				/>
+			</Link>
+		</li>
 	);
 
 	// button switches dark mode
