@@ -24,12 +24,12 @@ const PromptUserAlert = () => {
 			<div className="flex flex-row justify-evenly">
 				<a
 					href="/downloads/paul_mcjannet_resume.pdf"
-					download>
-					<button
-						onClick={closeToast}
-						className="bg-primary text-primary_tint_3 py-2 px-4 rounded-lg hover:scale-110">
-						Yes
-					</button>
+					download
+					onClick={closeToast}
+					alt="Download Paul McJannet's resume"
+					aria-label="Download Paul McJannet's resume"
+					className="bg-primary text-primary_tint_3 py-2 px-4 rounded-lg hover:scale-110">
+					Yes
 				</a>
 				<button
 					className="bg-primary text-primary_tint_3 py-2 px-4 rounded-lg hover:scale-110"

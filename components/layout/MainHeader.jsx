@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 // next
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 // icons
@@ -14,6 +15,9 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
+
+// assets
+import blackAndWhiteLogo from "@/public/images/logos/BW_Logo.svg";
 
 const MainHeader = () => {
 	const pathname = usePathname();
@@ -42,7 +46,10 @@ const MainHeader = () => {
 		"ease-in-out delay-25 hover:scale-125 duration-500 hover:text-background";
 
 	// toggles dark and light mode
-	const toggleDarkMode = () => {
+	const toggleDarkMode = (e) => {
+		// users should only toggle if they press ENTER/RETURN on their keyboard
+		if (e.key === "Tab") return;
+
 		const root = document.documentElement;
 		if (root.classList.contains("dark")) {
 			root.classList.remove("dark");
@@ -99,11 +106,30 @@ const MainHeader = () => {
 		</button>
 	);
 
-	// button switchs dark mode
+	// logo button goes to homepage
+	const logo = (
+		<li>
+			<Link
+				href="/"
+				className="p-0 m-0">
+				<Image
+					quality={100}
+					src={blackAndWhiteLogo}
+					alt="Go to Home Page"
+					width={100}
+					height={100}
+				/>
+			</Link>
+		</li>
+	);
+
+	// button switches dark mode
 	const darkModeButton = (
 		<li
-			className={`text-primary_tint_3 left-0 absolute top-48 p-4 md:static md:p-0 md:mr-auto hover:cursor-pointer hover:text-background ${hoverEffect}`}
-			onClick={toggleDarkMode}>
+			className={`left-0 absolute top-48 p-4 md:static md:p-0 md:mr-auto hover:cursor-pointer hover:text-background ${hoverEffect}`}
+			onClick={toggleDarkMode}
+			onKeyDown={toggleDarkMode}
+			tabIndex={0}>
 			{darkModeActive ? (
 				<FontAwesomeIcon
 					className="w-8 h-8"
@@ -127,21 +153,18 @@ const MainHeader = () => {
 				}`}>
 				<Link href="/">Home</Link>
 			</li>
-
 			<li
 				className={`${hoverEffect} ${
 					isMobileMenuOpen && "animate-about_delay_enter"
 				}`}>
 				<Link href="/about">About</Link>
 			</li>
-
 			<li
 				className={`${hoverEffect} ${
 					isMobileMenuOpen && "animate-projects_delay_enter"
 				}`}>
 				<Link href="/projects">Projects</Link>
 			</li>
-
 			<li
 				className={`${hoverEffect} ${
 					isMobileMenuOpen && "animate-contact_delay_enter"
@@ -154,7 +177,7 @@ const MainHeader = () => {
 	// layout for mobile screens
 	const mobileLayout = (
 		<ul
-			className={`${animationMenuName} p-4 list-none bg-primary flex flex-col gap-4 w-full items-end text-xl font-bold shadow-xl shadow-primary_tint_3 absolute -top-48 text-primary_tint_3`}>
+			className={`${animationMenuName} p-4 list-none bg-primary flex flex-col gap-4 w-full items-end text-xl font-bold shadow-xl shadow-primary_tint_3 absolute -top-48`}>
 			<li className="text-foreground mt-48">{closeButton}</li>
 			{darkModeButton}
 			{navigationButtons}
@@ -163,7 +186,8 @@ const MainHeader = () => {
 
 	// for larger screens
 	const normalNavigationMenu = (
-		<ul className="hidden md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl font-bold shadow-md shadow-primary_tint_3 absolute text-primary_tint_3">
+		<ul className="hidden items-center md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl dark:text-foreground font-bold shadow-md shadow-primary_tint_3 absolute">
+			{logo}
 			{darkModeButton}
 			{navigationButtons}
 		</ul>

@@ -33,12 +33,15 @@ const ProjectCard = ({
 	return (
 		<article
 			className={
-				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 hover:bg-background hover:dark:bg-slate-500 md:grid md:grid-cols-3 md:gap-4 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-project_card_grow"
+				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 md:hover:bg-background md:hover:dark:bg-slate-500 md:grid md:grid-cols-3 md:gap-6 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 md:hover:-translate-y-3 md:hover:scale-110 md:hover:shadow-project_card_grow"
 			}>
 			<a
 				className="hover:opacity-100"
+				tabIndex={-1}
 				href={websiteLink ? websiteLink : githubLink}
 				target="_blank"
+				alt={"Visit Project Page for " + title}
+				aria-label={"Visit Project Page for " + title}
 				rel="noopener noreferrer">
 				<Image
 					quality={100}
@@ -47,19 +50,23 @@ const ProjectCard = ({
 					alt={alt}
 				/>
 			</a>
-			<div className="md:text-base md:col-start-2 md:col-end-4 flex flex-col">
+			<div className="gap-y-4 md:text-base md:col-start-2 md:col-end-4 md:gap-y-2 flex flex-col">
 				<div className="inline-flex">
-					<div className="text-lg font-bold text-primary hover:text-primary_tint_2">
+					<div className="text-lg font-bold ease-in-out delay-25 duration-500 hover:scale-[1.1] underline hover:decoration-primary">
 						<a
 							href={websiteLink ? websiteLink : githubLink}
+							alt={"Visit Live demo web page for " + title}
+							aria-label={
+								"Visit Live demo web page for " + title
+							}
 							target="_blank"
 							rel="noopener noreferrer">
-							<div className="flex items-center">
+							<div className="flex items-center hover:text-primary">
 								<FontAwesomeIcon
 									className="w-4 h-4"
 									icon={faLink}
 								/>
-								<h3 className="pl-2">{title}</h3>
+								<p className="pl-2">{title}</p>
 							</div>
 						</a>
 					</div>
@@ -69,17 +76,21 @@ const ProjectCard = ({
 				</p>
 				<div className="flex flex-wrap gap-2">{badges}</div>
 				<div className="inline-flex">
-					<div className="text-lg font-bold text-primary hover:text-primary_tint_2">
+					<div className="text-lg font-bold ease-in-out delay-25 duration-500 hover:scale-[1.1] underline hover:decoration-primary">
 						<a
 							href={githubLink}
 							target="_blank"
+							alt={"Visit GitHub repo page for " + title}
+							aria-label={
+								"Visit GitHub repo page for " + title
+							}
 							rel="noopener noreferrer">
-							<div className="flex items-center">
+							<div className="flex items-center hover:text-primary">
 								<FontAwesomeIcon
 									className="w-4 h-4"
 									icon={faGithub}
 								/>
-								<h3 className="pl-2">View repo</h3>
+								<p className="pl-2">View Repo</p>
 							</div>
 						</a>
 					</div>

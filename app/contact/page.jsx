@@ -31,7 +31,9 @@ const ContactPage = () => {
 						<li>
 							<a
 								href="https://github.com/paul-mcj/"
+								aria-label="Visit GitHub profile page for Paul McJannet"
 								target="_blank"
+								alt="Visit GitHub profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -47,7 +49,9 @@ const ContactPage = () => {
 						<li>
 							<a
 								href="https://www.linkedin.com/in/paul-mcjannet/"
+								aria-label="Visit LinkedIn profile page for Paul McJannet"
 								target="_blank"
+								alt="Visit LinkedIn profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -65,7 +69,19 @@ const ContactPage = () => {
 			</section>
 			<section className="grid place-items-center text-center gap-y-8 sm:gap-y-12 mt-16">
 				<SecondaryHeader title="Or Send me an Email!" />
-				<ContactForm />
+				{/* TODO: fix hostgator email then add form! */}
+				{/* <ContactForm /> */}
+				<p>
+					If you would like to get in touch, please&nbsp;
+					<a
+						className="underline decoration-primary text-primary font-bold md:hover:decoration-primary md:hover:text-primary md:decoration-inherit md:text-inherit"
+						href="mailto:paul@paulmcjannet.com"
+						alt="Send email to paul@paulmcjannet.com"
+						aria-label="Send email to paul@paulmcjannet.com">
+						send me an email
+					</a>
+					&nbsp;and I'll get back to you as soon as I can!
+				</p>
 			</section>
 		</>
 	);

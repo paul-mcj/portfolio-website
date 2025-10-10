@@ -95,7 +95,7 @@ export default {
 
 				// primary section header
 				primary_header_enter:
-					"primary_header_enter 2s ease-in-out 0s"
+					"primary_header_enter 1.5s ease-in-out 0s"
 			},
 			keyframes: {
 				// slideshow

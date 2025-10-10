@@ -6,7 +6,7 @@ const CallToActionButton = ({ children, width, handleOnClick, disabled }) => {
 		<button
 			disabled={disabled}
 			onClick={handleOnClick}
-			className={`w-fit self-center bg-primary py-4 px-6 text-lg font-bold text-primary_tint_3 shadow-cta shadow-primary_tint_3 
+			className={`w-fit self-center bg-primary py-4 px-6 text-lg font-bold shadow-cta shadow-primary_tint_3 dark:text-foreground
 				${width}
 				${
 					disabled &&

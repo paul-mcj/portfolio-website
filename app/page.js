@@ -32,7 +32,7 @@ export default function Home() {
 					<p>
 						I have a diverse set of skills ranging from
 						frontend design using JavaScript and React, to
-						machine learning with Python.
+						backend infrastructure using Python Django.
 					</p>
 					<div className="md:self-start">
 						<PromptUserAlert />
