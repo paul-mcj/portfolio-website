@@ -1,0 +1,28 @@
+# .github/dependabot.yml
+
+version: 2
+updates:
+     # Configuration for your JavaScript dependencies (Next.js/React)
+     - package-ecosystem: "npm"
+       # Location of package.json and package-lock.json
+       directory: "/"
+       # Check for updates every Monday
+       schedule:
+            interval: "weekly"
+            day: "monday"
+       # Group patch and minor updates together to reduce noise
+       groups:
+            patch-and-minor-updates:
+                 patterns:
+                      - "*"
+                 update-types:
+                      - "patch"
+                      - "minor"
+
+     # Configuration for any GitHub Actions used in your workflows
+     - package-ecosystem: "github-actions"
+       # Location of your workflow files (.github/workflows)
+       directory: "/"
+       # Check for updates weekly
+       schedule:
+            interval: "weekly"
