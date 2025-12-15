@@ -75,9 +75,9 @@ const ContactPage = () => {
 					If you would like to get in touch, please&nbsp;
 					<a
 						className="underline decoration-primary text-primary font-bold md:hover:decoration-primary md:hover:text-primary md:decoration-inherit md:text-inherit"
-						href="mailto:paul@paulmcjannet.com"
-						alt="Send email to paul@paulmcjannet.com"
-						aria-label="Send email to paul@paulmcjannet.com">
+						href="mailto:mcjannetp@gmail.com"
+						alt="Send email to mcjannetp@gmail.com"
+						aria-label="Send email to mcjannetp@gmail.com">
 						send me an email
 					</a>
 					&nbsp;and I'll get back to you as soon as I can!

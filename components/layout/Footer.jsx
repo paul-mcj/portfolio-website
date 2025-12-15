@@ -4,8 +4,8 @@ import FooterIcon from "../assets/FooterIcon";
 // icons
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // next
 import Image from "next/image";
@@ -40,20 +40,10 @@ const Footer = () => {
 				</li>
 				<li>
 					<a
-						href="https://www.clippings.me/paulmcjannet"
-						target="_blank"
-						alt="Visit Clippings profile page for Paul McJannet"
-						aria-label="Visit Clippings profile page for Paul McJannet"
-						rel="noopener noreferrer">
-						<FooterIcon iconName={faNewspaper} />
-					</a>
-				</li>
-				<li>
-					<a
-						href="mailto:paul@paulmcjannet.com"
-						alt="Send email to paul@paulmcjannet.com"
-						aria-label="Send email to paul@paulmcjannet.com">
-						<FooterIcon iconName={faPaperPlane} />
+						href="mailto:mcjannetp@gmail.com"
+						alt="Send email to mcjannetp@gmail.com"
+						aria-label="Send email to mcjannetp@gmail.com">
+						<FooterIcon iconName={faEnvelope} />
 					</a>
 				</li>
 			</ul>
