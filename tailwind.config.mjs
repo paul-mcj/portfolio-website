@@ -1,5 +1,3 @@
-import { transform } from "next/dist/build/swc/generated-native";
-
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: "selector",
