@@ -4,22 +4,31 @@ updates:
        directory: "/"
        schedule:
             interval: "monthly"
+            day: "sunday"
        groups:
             root-js:
                  patterns: ["*"]
+       ignore:
+            - dependency-name: "tailwindcss"
+              versions: [">= 4.0.0"]
 
      - package-ecosystem: "npm"
        directory: "/frontend"
        schedule:
             interval: "monthly"
+            day: "sunday"
        groups:
             frontend-js:
                  patterns: ["*"]
+       ignore:
+            - dependency-name: "tailwindcss"
+              versions: [">= 4.0.0"]
 
      - package-ecosystem: "pip"
        directory: "/"
        schedule:
             interval: "monthly"
+            day: "sunday"
        groups:
             python-deps:
                  patterns: ["*"]
