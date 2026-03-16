@@ -29,10 +29,17 @@ const AboutPage = () => {
 					<p className="md:mt-8">
 						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-foreground px-4 py-2">
 							Hey, I'm Paul!
-						</span>{" "}
-						I am an aspiring web developer who loves to learn
-						about different technologies and integrate those
-						into new projects.
+						</span>
+						&nbsp; I am the founder and lead developer
+						of&nbsp;
+						<Link
+							href="https://www.volinix.ca"
+							className="underline text-secondary font-bold">
+							Volinix Studio
+						</Link>
+						, a Ontario-based company that offers web design,
+						SEO and content care services for small local
+						businesses.
 					</p>
 					<p>
 						Python is the most recent technology I have fallen

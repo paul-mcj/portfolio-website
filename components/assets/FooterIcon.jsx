@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const FooterIcon = ({ iconName }) => {
 	return (
 		<FontAwesomeIcon
-			className="w-6 h-6 hover:text-primary"
+			className="w-6 h-6 p-0 hover:text-primary"
 			icon={iconName}
 		/>
 	);
