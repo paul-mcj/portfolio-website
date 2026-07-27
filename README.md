@@ -1,15 +1,15 @@
-# Portfolio Website (v1.0)
+# Portfolio Website (v2.0)
 
 Hi, my name is Paul McJannet!
 
-This is the repo for my professional website that is made with Next.js and
+This is the repo for my portfolio website that is made with Next.js and
 tailwindcss.
 
-I am an ambitions learner and aspiring web developer with skills using a bunch
-of different technologies like React, Python and MySQL.
+I am the founder and lead developer of [Volinix Studio](https://www.volinix.ca/), a web development business based in Sudbury and Ottawa that works with small businesses to provide them with web design, SEO and content delivery solutions. We also work on delivering AI voice agents so customers can call and book appointments easily!
 
 Take a look at some of my things:
 
--    My Website: [paulmcjannet.com](https://www.paulmcjannet.com/)
--    LinkedIn: [Paul McJannet](https://www.linkedin.com/in/paul-mcjannet/)
--    Github Profile: [paul-mcj](https://github.com/paul-mcj/)
+-    [paulmcjannet.com](https://www.paulmcjannet.com/)
+-    [Volinix Studio](https://www.volinix.ca/)
+-    [LinkedIn](https://www.linkedin.com/in/paul-mcjannet/)
+-    [GitHub](https://github.com/paul-mcj/)
