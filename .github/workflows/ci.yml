@@ -22,5 +22,8 @@ jobs:
                - name: JS Security Scan
                  run: pnpm audit --audit-level=high
 
+               - name: JS Lint
+                 run: pnpm run lint
+
                - name: JS Build
                  run: pnpm run build
