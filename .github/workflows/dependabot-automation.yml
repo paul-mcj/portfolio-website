@@ -13,13 +13,17 @@ jobs:
                - name: Checkout Code
                  uses: actions/checkout@v4
 
-               - name: JS Audit
-                 if: hashFiles('**/package.json') != ''
-                 run: npm audit --audit-level=high
+               - name: Setup pnpm
+                 uses: pnpm/action-setup@v6
 
-               - name: Python Audit
-                 if: hashFiles('**/pyproject.toml') != ''
-                 run: pip install pip-audit && pip-audit
+               - name: Setup Node
+                 uses: actions/setup-node@v4
+                 with:
+                      node-version: 22
+                      cache: "pnpm"
+
+               - name: JS Audit
+                 run: pnpm audit --audit-level=high
 
                - name: Fetch Metadata
                  id: metadata

@@ -12,7 +12,7 @@ const NotFound = () => {
 			<div className="flex flex-col gap-y-8">
 				<PrimarySectionHeader title="404 Error" />
 				<SecondaryHeader title="Page Not Found" />
-				<p>Looks like you're lost! This page cannot be found...</p>
+				<p>Looks like you&apos;re lost! This page cannot be found...</p>
 			</div>
 			<Link href="/">
 				<CallToActionButton>Go Home</CallToActionButton>

@@ -3,7 +3,6 @@ import PrimarySectionHeader from "@/components/layout/PrimarySectionHeader";
 import SecondaryHeader from "@/components/layout/SecondaryHeader";
 import CallToActionButton from "@/components/assets/CallToActionButton";
 import ImageContainer from "@/components/layout/ImageContainer";
-import ContactForm from "@/components/layout/ContactForm";
 
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -69,8 +68,6 @@ const ContactPage = () => {
 			</section>
 			<section className="grid place-items-center text-center gap-y-8 sm:gap-y-12 mt-16">
 				<SecondaryHeader title="Or Send me an Email!" />
-				{/* TODO: fix hostgator email then add form! */}
-				{/* <ContactForm /> */}
 				<p>
 					If you would like to get in touch, please&nbsp;
 					<a
@@ -80,7 +77,7 @@ const ContactPage = () => {
 						aria-label="Send email to mcjannetp@gmail.com">
 						send me an email
 					</a>
-					&nbsp;and I'll get back to you as soon as I can!
+					&nbsp;and I&apos;ll get back to you as soon as I can!
 				</p>
 			</section>
 		</>

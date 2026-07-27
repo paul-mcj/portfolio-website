@@ -28,7 +28,7 @@ const AboutPage = () => {
 					<PrimarySectionHeader title="About Me" />
 					<p className="md:mt-8">
 						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-foreground px-4 py-2">
-							Hey, I'm Paul!
+							Hey, I&apos;m Paul!
 						</span>
 						&nbsp; I am the founder and lead developer
 						of&nbsp;

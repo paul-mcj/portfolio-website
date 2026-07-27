@@ -26,20 +26,26 @@ const MainHeader = () => {
 
 	const [animationMenuName, setAnimationMenuName] = useState("");
 
-	const [prevPathName, setPrevPathName] = useState(pathname);
-
 	const [darkModeActive, setDarkModeActive] = useState(false);
 
+	const [prevPathname, setPrevPathname] = useState(pathname);
+
 	// if we change pages, close the nav menu on mobile if its open
+	if (pathname !== prevPathname) {
+		setPrevPathname(pathname);
+		setIsMobileMenuOpen(false);
+	}
+
+	// sync the toggle icon with the persisted theme on mount
 	useEffect(() => {
-		if (pathname !== prevPathName) {
-			setIsMobileMenuOpen(() => false);
-			setPrevPathName(() => pathname);
-		}
 		if (localStorage.getItem("theme") === "dark") {
 			document.documentElement.classList.add("dark");
+			// one-time sync from localStorage on mount; replaced by an
+			// SSR-safe theme provider in the upcoming redesign
+			// eslint-disable-next-line react-hooks/set-state-in-effect
+			setDarkModeActive(true);
 		}
-	});
+	}, []);
 
 	// apply hover styling to navbar items
 	const hoverEffect =

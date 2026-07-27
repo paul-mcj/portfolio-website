@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
 	darkMode: "selector",
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -183,3 +183,5 @@ export default {
 		}
 	]
 };
+
+export default config;
