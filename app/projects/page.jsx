@@ -11,6 +11,33 @@ import pythonGame from "@/public/images/project_screenshots/python-game.png";
 import musicPlayer from "@/public/images/project_screenshots/music-player.png";
 import cryptoCalculator from "@/public/images/project_screenshots/crypto-calculator.png";
 
+// seo
+import { SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
+
+const description =
+	"A collection of web development and Python projects by Paul McJannet, including React apps, full-stack builds and machine learning experiments.";
+
+export const metadata = {
+	title: "Projects",
+	description,
+	alternates: { canonical: "/projects" },
+	openGraph: {
+		type: "website",
+		url: "/projects",
+		siteName: SITE_NAME,
+		title: "Projects | Paul McJannet",
+		description,
+		locale: "en_CA",
+		images: [defaultOpenGraphImage]
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Projects | Paul McJannet",
+		description,
+		images: [defaultOpenGraphImage.url]
+	}
+};
+
 const ProjectsPage = () => {
 	return (
 		<>

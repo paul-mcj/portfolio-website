@@ -12,6 +12,33 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 // images
 import working from "@/public/images/other/working.jpg";
 
+// seo
+import { SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
+
+const description =
+	"Get in touch with Paul McJannet, a web developer available for freelance and collaboration opportunities. Connect via email, GitHub or LinkedIn.";
+
+export const metadata = {
+	title: "Contact",
+	description,
+	alternates: { canonical: "/contact" },
+	openGraph: {
+		type: "website",
+		url: "/contact",
+		siteName: SITE_NAME,
+		title: "Contact Paul McJannet",
+		description,
+		locale: "en_CA",
+		images: [defaultOpenGraphImage]
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Contact Paul McJannet",
+		description,
+		images: [defaultOpenGraphImage.url]
+	}
+};
+
 const ContactPage = () => {
 	return (
 		<>

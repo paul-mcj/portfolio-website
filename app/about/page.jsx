@@ -17,6 +17,33 @@ import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faBaseball } from "@fortawesome/free-solid-svg-icons";
 import { faWizardsOfTheCoast } from "@fortawesome/free-brands-svg-icons";
 
+// seo
+import { SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
+
+const description =
+	"Learn more about Paul McJannet, founder of Volinix Studio and web developer working with JavaScript, React, Next.js and Python, based in Ontario, Canada.";
+
+export const metadata = {
+	title: "About",
+	description,
+	alternates: { canonical: "/about" },
+	openGraph: {
+		type: "website",
+		url: "/about",
+		siteName: SITE_NAME,
+		title: "About Paul McJannet",
+		description,
+		locale: "en_CA",
+		images: [defaultOpenGraphImage]
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "About Paul McJannet",
+		description,
+		images: [defaultOpenGraphImage.url]
+	}
+};
+
 const AboutPage = () => {
 	return (
 		<>

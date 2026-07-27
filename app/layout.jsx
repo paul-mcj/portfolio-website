@@ -9,6 +9,9 @@ import MainHeader from "@/components/layout/MainHeader";
 import Footer from "@/components/layout/Footer";
 import PageBackground from "@/components/layout/PageBackground";
 
+// seo
+import { SITE_URL, SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
+
 const quicksand = Quicksand({
 	variable: "--font-quicksand-sans",
 	subsets: ["latin"],
@@ -21,12 +24,34 @@ const merriweather = Merriweather({
 	weight: ["300", "400", "700", "900"]
 });
 
+const description =
+	"Paul McJannet is an aspiring web developer who loves to learn about different technologies and integrate those into new projects. Based in Ontario, Canada. He has a diverse set of skills ranging from frontend design using JavaScript and React, to machine learning with Python.";
+
 export const metadata = {
-	title: "Paul McJannet | Web Developer",
-	description:
-		"Paul McJannet is an aspiring web developer who loves to learn about different technologies and integrate those into new projects. Based in Ontario, Canada. He has a diverse set of skills ranging from frontend design using JavaScript and React, to machine learning with Python.",
+	metadataBase: new URL(SITE_URL),
+	title: {
+		default: "Paul McJannet | Web Developer",
+		template: `%s | ${SITE_NAME}`
+	},
+	description,
 	icons: { icon: "/icon.png" },
 	robots: "index, follow",
+	alternates: { canonical: "/" },
+	openGraph: {
+		type: "website",
+		url: "/",
+		siteName: SITE_NAME,
+		title: "Paul McJannet | Web Developer",
+		description,
+		locale: "en_CA",
+		images: [defaultOpenGraphImage]
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Paul McJannet | Web Developer",
+		description,
+		images: [defaultOpenGraphImage.url]
+	},
 	other: {
 		"application/ld+json": JSON.stringify({
 			"@context": "https://schema.org",
@@ -34,7 +59,7 @@ export const metadata = {
 			name: "Paul McJannet",
 			description:
 				"Experienced Python and JavaScript Developer specializing in web development.",
-			url: "https://www.paulmcjannet.com",
+			url: SITE_URL,
 			sameAs: [
 				"https://github.com/paul-mcj/",
 				"https://www.linkedin.com/in/paul-mcjannet/"
