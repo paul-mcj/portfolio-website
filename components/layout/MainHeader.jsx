@@ -90,7 +90,7 @@ const MainHeader = () => {
 	const hamburgerButton = (
 		<button
 			onClick={toggleMobileMenu}
-			className="md:hidden p-4 focus:outline-none"
+			className="md:hidden p-4 focus:outline-hidden"
 			aria-label="Toggle mobile navigation menu">
 			<FontAwesomeIcon
 				className="w-8 h-8"
@@ -103,7 +103,7 @@ const MainHeader = () => {
 	const closeButton = (
 		<button
 			onClick={toggleMobileMenu}
-			className="md:hidden focus:outline-none"
+			className="md:hidden focus:outline-hidden"
 			aria-label="Toggle mobile navigation menu">
 			<FontAwesomeIcon
 				className="w-8 h-8"

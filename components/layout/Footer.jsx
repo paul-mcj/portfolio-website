@@ -16,7 +16,7 @@ import volinixLogo from "@/public/images/logos/volinix-logo.svg";
 
 const Footer = () => {
 	return (
-		<footer className="relative flex flex-col justify-center items-center text-center gap-y-2 mt-32 bg-gradient-to-t from-gray-400 dark:from-foreground to-transparent">
+		<footer className="relative flex flex-col justify-center items-center text-center gap-y-2 mt-32 bg-linear-to-t from-gray-400 dark:from-foreground to-transparent">
 			<ul className="flex place-content-center items-enter gap-x-12">
 				<li>
 					<a

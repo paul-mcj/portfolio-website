@@ -33,7 +33,7 @@ const ProjectCard = ({
 	return (
 		<article
 			className={
-				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 md:hover:bg-background md:hover:dark:bg-slate-500 md:grid md:grid-cols-3 md:gap-6 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 md:hover:-translate-y-3 md:hover:scale-110 md:hover:shadow-project_card_grow"
+				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 md:hover:bg-background md:dark:hover:bg-slate-500 md:grid md:grid-cols-3 md:gap-6 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 md:hover:-translate-y-3 md:hover:scale-110 md:hover:shadow-project_card_grow"
 			}>
 			<a
 				className="hover:opacity-100"
