@@ -49,6 +49,7 @@ const ContactPage = () => {
 						alt="Cartoon of two people working on a computer at a desk with books and calendar in background"
 						title="Working together"
 						borderColor="border-primary"
+						preload
 					/>
 				</div>
 				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center md:gap-y-12 md:text-center">

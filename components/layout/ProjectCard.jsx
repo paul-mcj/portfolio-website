@@ -71,10 +71,10 @@ const ProjectCard = ({
 				aria-label={"Visit Project Page for " + title}
 				rel="noopener noreferrer">
 				<Image
-					quality={100}
 					className="h-full w-full object-cover object-top"
 					src={src}
 					alt={alt}
+					sizes="(min-width: 768px) 33vw, 100vw"
 				/>
 				<span
 					aria-hidden="true"

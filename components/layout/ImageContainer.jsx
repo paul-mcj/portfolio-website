@@ -10,7 +10,8 @@ const ImageContainer = ({
 	title,
 	borderColor,
 	activeAnimation,
-	isHidden
+	isHidden,
+	preload
 }) => {
 	return (
 		<div
@@ -20,7 +21,9 @@ const ImageContainer = ({
 				src={src}
 				alt={alt}
 				title={title}
-				priority
+				sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 192px"
+				preload={preload}
+				fetchPriority={preload ? "high" : undefined}
 			/>
 		</div>
 	);
@@ -32,7 +35,8 @@ ImageContainer.propTypes = {
 	title: PropTypes.string.isRequired,
 	borderColor: PropTypes.string,
 	activeAnimation: PropTypes.bool,
-	isHidden: PropTypes.bool
+	isHidden: PropTypes.bool,
+	preload: PropTypes.bool
 };
 
 export default ImageContainer;

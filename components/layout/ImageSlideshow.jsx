@@ -39,6 +39,7 @@ const ImageSlideshow = () => {
 						index !== currentImageIndex &&
 						"hidden animate-none"
 					}
+					preload={index === 0}
 				/>
 			))}
 		</>

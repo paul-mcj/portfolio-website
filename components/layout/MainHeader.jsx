@@ -67,7 +67,7 @@ const MainHeader = () => {
 
 				<button
 					onClick={toggleMobileMenu}
-					className="md:hidden text-heading cursor-pointer focus:outline-hidden"
+					className="md:hidden text-heading cursor-pointer rounded focus:outline-hidden focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
 					aria-expanded={isMobileMenuOpen}
 					aria-label="Toggle mobile navigation menu">
 					<FontAwesomeIcon

@@ -24,7 +24,7 @@ const karla = Karla({
 });
 
 const description =
-	"Paul McJannet is an aspiring web developer who loves to learn about different technologies and integrate those into new projects. Based in Ontario, Canada. He has a diverse set of skills ranging from frontend design using JavaScript and React, to machine learning with Python.";
+	"Paul McJannet is a web developer in Ontario, Canada, building interactive web apps with JavaScript and React, with a growing focus on Python and machine learning.";
 
 export const metadata = {
 	metadataBase: new URL(SITE_URL),

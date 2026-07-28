@@ -21,6 +21,7 @@ export default function Home() {
 						alt="Paul McJannet in pink shirt with waterfall in background"
 						title="Paul McJannet"
 						borderColor="border-primary"
+						preload
 					/>
 				</div>
 				<div className="flex flex-col gap-y-6 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center">
