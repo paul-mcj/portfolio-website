@@ -41,8 +41,13 @@ export const metadata = {
 const ProjectsPage = () => {
 	return (
 		<>
-			<section className="grid place-items-center gap-y-12 text-left px-4 md:px-0">
-				<PrimarySectionHeader title="My Projects" />
+			<section className="grid place-items-center gap-y-8 text-left">
+				<div className="w-full">
+					<p className="font-mono text-sm font-semibold text-secondary uppercase tracking-wider mb-4">
+						{"// projects"}
+					</p>
+					<PrimarySectionHeader title="My Projects" />
+				</div>
 				<ProjectCard
 					title="Beer Order App"
 					date="Mar 2022"
@@ -86,8 +91,6 @@ const ProjectsPage = () => {
 					desc="Python game where users try to guess numbers within a given range (the range depends on selected difficult level)."
 					alt="Screenshot of python number guessing game"
 					githubLink="https://github.com/paul-mcj/Python-Game"
-					// TODO: add website once on vercel
-					// websiteLink="#"
 				/>
 				<ProjectCard
 					title="Music Player"
@@ -99,17 +102,6 @@ const ProjectsPage = () => {
 					githubLink="https://github.com/paul-mcj/Music-Player"
 					websiteLink="https://paul-mcj.github.io/Music-Player/"
 				/>
-				{/* TODO: add relaity check once it works properly on (on Google play store?) */}
-				{/* <ProjectCard
-					title="Reality Check"
-					date="Apr 2023"
-					skills={["react native", "javascript", "css"]}
-					src={onlineStore}
-					desc="React Native application that allows users to push notifications of when they need to be reminded to perform reality checks in order to help induce lucid dreams."
-					alt="Screenshot of reality check in action where user is setting a reminder timer"
-					githubLink="https://github.com/paul-mcj/Reality-Check"
-					websiteLink="#"
-				/> */}
 				<ProjectCard
 					title="Crypto Calculator"
 					date="Dec 2021"
@@ -121,7 +113,7 @@ const ProjectsPage = () => {
 					websiteLink="https://paul-mcj.github.io/Crypto-Calculator/"
 				/>
 			</section>
-			<section className="flex flex-col gap-y-8 sm:gap-y-12 mt-16">
+			<section className="flex flex-col gap-y-8">
 				<PromptUserAlert />
 			</section>
 		</>

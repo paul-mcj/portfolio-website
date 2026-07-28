@@ -1,53 +1,108 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@config '../tailwind.config.mjs';
+@theme {
+	--font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+	--font-sans: var(--font-karla), ui-sans-serif, sans-serif;
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+	--color-background: #0c2321;
+	--color-surface: #142e2b;
+	--color-line: #1e3f3b;
+	--color-foreground: #e8efed;
+	--color-heading: #f4f7f6;
+	--color-muted: #aec0bc;
+	--color-faint: #7e938f;
+	--color-primary: #ff6a3d;
+	--color-secondary: #c6f135;
+	--color-cyan: #7fd8e8;
 }
 
+/* override toastify css variables to match the site palette */
 :root {
-	--primary: #2a9ee6;
-	--primary_tint: #4e9ccc;
-	--primary_tint_2: #4481a7;
-	--primary_tint_3: #25465b;
-	--secondary: #e62a66;
-
-	/* override toastify css variables */
-	--toastify-color-progress-dark: #ffffff;
-	--toastify-color-progress-light: #171717;
-	--toastify-color-progress-bgo: 0;
-
-	--main_white: #ffffff;
-	--main_black: #171717;
-}
-
-:root.dark {
-	color: var(--main_white);
-	background: var(--main_black);
+	--toastify-color-dark: var(--color-surface);
+	--toastify-text-color-dark: var(--color-foreground);
+	--toastify-color-progress-dark: var(--color-primary);
 }
 
 nextjs-portal {
 	@apply hidden; /* Hides the element */
 }
 
-body {
-	color: var(--main_black);
-	background: var(--main_white);
-	/* transition: background-color 0.3s ease, color 0.3s ease; */
-	font-family: Arial, Helvetica, sans-serif;
+@layer components {
+	/* single reusable content container, replaces the old fixed
+	xl:px-48 2xl:px-96 padding duplicated across layout/header */
+	.container-page {
+		width: 100%;
+		max-width: 1280px;
+		margin-inline: auto;
+		padding-inline: 1.5rem;
+	}
+	@media (min-width: 768px) {
+		.container-page {
+			padding-inline: 2.5rem;
+		}
+	}
+	@media (min-width: 1280px) {
+		.container-page {
+			padding-inline: 5rem;
+		}
+	}
+	@media (min-width: 1536px) {
+		.container-page {
+			padding-inline: 7rem;
+		}
+	}
+}
+
+@keyframes blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.animate-blink {
+	animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes fade_out {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.animate-fade_out {
+	animation: fade_out 5s ease-in-out;
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+}
+
+.animate-typing {
+	animation-name: typing;
+	animation-duration: 0.9s;
+	animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.animate-blink,
+	.animate-fade_out,
+	.animate-typing {
+		animation: none;
+	}
 }

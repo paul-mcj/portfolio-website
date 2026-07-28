@@ -8,14 +8,16 @@ import Link from "next/link";
 
 const NotFound = () => {
 	return (
-		<section className="grid place-items-center text-center gap-y-32 mt-16 text-background">
-			<div className="flex flex-col gap-y-8">
+		<section className="grid place-items-center text-center gap-y-16">
+			<div className="flex flex-col gap-y-4">
 				<PrimarySectionHeader title="404 Error" />
-				<SecondaryHeader title="Page Not Found" />
-				<p>Looks like you&apos;re lost! This page cannot be found...</p>
+				<SecondaryHeader title="page not found" />
+				<p className="text-muted">
+					Looks like you&apos;re lost! This page cannot be found...
+				</p>
 			</div>
 			<Link href="/">
-				<CallToActionButton>Go Home</CallToActionButton>
+				<CallToActionButton>./go-home</CallToActionButton>
 			</Link>
 		</section>
 	);

@@ -1,9 +1,14 @@
+// client-side component (scroll-reveal needs IntersectionObserver)
+"use client";
+
+// react
+import { useEffect, useRef, useState } from "react";
+
 // prop types
 import PropTypes from "prop-types";
 
 // next
 import Image from "next/image";
-import Link from "next/link";
 
 // components
 import Badge from "../assets/Badge";
@@ -23,6 +28,27 @@ const ProjectCard = ({
 	githubLink,
 	websiteLink
 }) => {
+	const cardRef = useRef(null);
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const el = cardRef.current;
+		if (!el) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsVisible(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.15 }
+		);
+		observer.observe(el);
+
+		return () => observer.disconnect();
+	}, []);
+
 	const badges = skills.map((skill, index) => (
 		<Badge
 			title={skill}
@@ -32,81 +58,70 @@ const ProjectCard = ({
 
 	return (
 		<article
-			className={
-				"container flex flex-col p-4 gap-2 bg-slate-100 dark:bg-slate-600 md:hover:bg-background md:dark:hover:bg-slate-500 md:grid md:grid-cols-3 md:gap-6 ease-in-out shadow-xl shadow-primary_tint_2 dark:shadow-primary_tint_3 delay-25 duration-500 md:hover:-translate-y-3 md:hover:scale-110 md:hover:shadow-project_card_grow"
-			}>
+			ref={cardRef}
+			className={`w-full flex flex-col md:grid md:grid-cols-3 gap-6 p-6 bg-surface border border-line rounded-lg transition-all duration-300 ease-out hover:border-primary motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 ${
+				isVisible
+					? "opacity-100 translate-y-0"
+					: "opacity-0 translate-y-6"
+			}`}>
 			<a
-				className="hover:opacity-100"
-				tabIndex={-1}
+				className="group relative block h-48 md:h-56 w-full overflow-hidden rounded md:col-span-1"
 				href={websiteLink ? websiteLink : githubLink}
 				target="_blank"
-				alt={"Visit Project Page for " + title}
 				aria-label={"Visit Project Page for " + title}
 				rel="noopener noreferrer">
 				<Image
 					quality={100}
-					className="hidden md:block md:w-full md:h-2/3 md:object-cover lg:h-full"
+					className="h-full w-full object-cover object-top"
 					src={src}
 					alt={alt}
 				/>
+				<span
+					aria-hidden="true"
+					className="motion-reduce:hidden pointer-events-none absolute inset-0 -translate-x-[150%] skew-x-12 bg-linear-to-r from-transparent via-white/25 to-transparent group-hover:transition-transform group-hover:duration-700 group-hover:ease-out group-hover:translate-x-[150%]"
+				/>
 			</a>
-			<div className="gap-y-4 md:text-base md:col-start-2 md:col-end-4 md:gap-y-2 flex flex-col">
-				<div className="inline-flex">
-					<div className="text-lg font-bold ease-in-out delay-25 duration-500 hover:scale-[1.1] underline hover:decoration-primary">
-						<a
-							href={websiteLink ? websiteLink : githubLink}
-							alt={"Visit Live demo web page for " + title}
-							aria-label={
-								"Visit Live demo web page for " + title
-							}
-							target="_blank"
-							rel="noopener noreferrer">
-							<div className="flex items-center hover:text-primary">
-								<FontAwesomeIcon
-									className="w-4 h-4"
-									icon={faLink}
-								/>
-								<p className="pl-2">{title}</p>
-							</div>
-						</a>
-					</div>
+			<div className="md:col-span-2 flex flex-col gap-3">
+				<div className="flex items-center justify-between gap-4 flex-wrap">
+					<a
+						href={websiteLink ? websiteLink : githubLink}
+						aria-label={"Visit Live demo web page for " + title}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-2 font-mono font-bold text-heading hover:text-primary transition-colors duration-200">
+						<FontAwesomeIcon
+							className="w-4 h-4"
+							icon={faLink}
+						/>
+						{title}
+					</a>
+					<p className="font-mono text-xs text-primary">{date}</p>
 				</div>
-				<p className="w-fit py-1 px-3 font-bold rounded-full text-xs text-background bg-foreground mb-2">
-					{date}
-				</p>
 				<div className="flex flex-wrap gap-2">{badges}</div>
-				<div className="inline-flex">
-					<div className="text-lg font-bold ease-in-out delay-25 duration-500 hover:scale-[1.1] underline hover:decoration-primary">
-						<a
-							href={githubLink}
-							target="_blank"
-							alt={"Visit GitHub repo page for " + title}
-							aria-label={
-								"Visit GitHub repo page for " + title
-							}
-							rel="noopener noreferrer">
-							<div className="flex items-center hover:text-primary">
-								<FontAwesomeIcon
-									className="w-4 h-4"
-									icon={faGithub}
-								/>
-								<p className="pl-2">View Repo</p>
-							</div>
-						</a>
-					</div>
-				</div>
-				<p>{desc}</p>
+				<p className="text-muted">{desc}</p>
+				<a
+					href={githubLink}
+					target="_blank"
+					aria-label={"Visit GitHub repo page for " + title}
+					rel="noopener noreferrer"
+					className="inline-flex items-center gap-2 font-mono text-sm text-faint hover:text-primary transition-colors duration-200 w-fit">
+					<FontAwesomeIcon
+						className="w-4 h-4"
+						icon={faGithub}
+					/>
+					View Repo
+				</a>
 			</div>
 		</article>
 	);
 };
 
-ProjectCard.PropTypes = {
+ProjectCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	skills: PropTypes.arrayOf(PropTypes.string),
 	src: PropTypes.object.isRequired,
-	desc: PropTypes.string.isRequired.isRequired,
+	desc: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
 	githubLink: PropTypes.string,
 	websiteLink: PropTypes.string

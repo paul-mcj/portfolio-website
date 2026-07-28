@@ -23,13 +23,16 @@ export default function Home() {
 						borderColor="border-primary"
 					/>
 				</div>
-				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center md:gap-y-8 ">
-					<PrimarySectionHeader title="Hi, I'm Paul, Web Developer" />
-					<p>
+				<div className="flex flex-col gap-y-6 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center">
+					<p className="font-mono text-sm font-semibold text-secondary uppercase tracking-wider">
+						{"// web developer"}
+					</p>
+					<PrimarySectionHeader title="Hi, I'm Paul." />
+					<p className="text-muted">
 						Based in Ontario, Canada. I transform ideas into
 						beautiful, interactive web applications.
 					</p>
-					<p>
+					<p className="text-muted">
 						I have a diverse set of skills ranging from
 						frontend design using JavaScript and React, to
 						backend infrastructure using Python Django.
@@ -39,8 +42,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-			<section className="grid place-items-center gap-y-12 mt-16 text-left px-4 md:px-0">
-				<SecondaryHeader title="Featured Works" />
+			<section className="grid place-items-center gap-y-8 text-left px-4 md:px-0">
+				<SecondaryHeader title="featured work" />
 				<ProjectCard
 					title="Beer Order App"
 					date="Mar 2022"

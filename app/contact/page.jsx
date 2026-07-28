@@ -52,6 +52,9 @@ const ContactPage = () => {
 					/>
 				</div>
 				<div className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:place-self-center md:gap-y-12 md:text-center">
+					<p className="font-mono text-sm font-semibold text-secondary uppercase tracking-wider">
+						{"// contact"}
+					</p>
 					<PrimarySectionHeader title="Let's work together!" />
 					<ul className="grid gap-y-8 md:gap-y-12 text-lg place-items-center">
 						<li>
@@ -59,7 +62,6 @@ const ContactPage = () => {
 								href="https://github.com/paul-mcj/"
 								aria-label="Visit GitHub profile page for Paul McJannet"
 								target="_blank"
-								alt="Visit GitHub profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -77,7 +79,6 @@ const ContactPage = () => {
 								href="https://www.linkedin.com/in/paul-mcjannet/"
 								aria-label="Visit LinkedIn profile page for Paul McJannet"
 								target="_blank"
-								alt="Visit LinkedIn profile page for Paul McJannet"
 								rel="noopener noreferrer">
 								<CallToActionButton>
 									<div className="flex justify-center items-center gap-x-2">
@@ -93,14 +94,13 @@ const ContactPage = () => {
 					</ul>
 				</div>
 			</section>
-			<section className="grid place-items-center text-center gap-y-8 sm:gap-y-12 mt-16">
-				<SecondaryHeader title="Or Send me an Email!" />
-				<p>
+			<section className="grid place-items-center text-center gap-y-8">
+				<SecondaryHeader title="or send me an email" />
+				<p className="text-muted">
 					If you would like to get in touch, please&nbsp;
 					<a
-						className="underline decoration-primary text-primary font-bold md:hover:decoration-primary md:hover:text-primary md:decoration-inherit md:text-inherit"
+						className="underline font-bold text-primary hover:opacity-80"
 						href="mailto:mcjannetp@gmail.com"
-						alt="Send email to mcjannetp@gmail.com"
 						aria-label="Send email to mcjannetp@gmail.com">
 						send me an email
 					</a>

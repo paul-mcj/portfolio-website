@@ -6,22 +6,19 @@ const CallToActionButton = ({ children, width, handleOnClick, disabled }) => {
 		<button
 			disabled={disabled}
 			onClick={handleOnClick}
-			className={`w-fit self-center bg-primary py-4 px-6 text-lg font-bold shadow-cta shadow-primary_tint_3 dark:text-foreground
+			className={`w-fit self-center py-3 px-6 font-mono font-bold transition-opacity duration-200
 				${width}
 				${
-					disabled &&
-					"bg-primary_tint_3 shadow-none text-background translate-y-0 scale-100"
-				}
-				${
-					!disabled &&
-					"ease-in-out delay-25 duration-500 hover:-translate-y-3 hover:scale-110 hover:shadow-cta_grow hover:text-background"
-				}  `}>
+					disabled
+						? "bg-primary/50 text-background/70 cursor-not-allowed"
+						: "bg-primary text-background hover:opacity-90 cursor-pointer"
+				}`}>
 			{children}
 		</button>
 	);
 };
 
-CallToActionButton.PropTypes = {
+CallToActionButton.propTypes = {
 	width: PropTypes.string,
 	handleOnClick: PropTypes.func,
 	disabled: PropTypes.bool

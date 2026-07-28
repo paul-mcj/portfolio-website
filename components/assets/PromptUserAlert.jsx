@@ -26,13 +26,12 @@ const PromptUserAlert = () => {
 					href="/downloads/paul_mcjannet_resume.pdf"
 					download
 					onClick={closeToast}
-					alt="Download Paul McJannet's resume"
 					aria-label="Download Paul McJannet's resume"
-					className="bg-primary text-primary_tint_3 py-2 px-4 rounded-lg hover:scale-110">
+					className="font-mono bg-primary text-background py-2 px-4 rounded hover:opacity-90 cursor-pointer">
 					Yes
 				</a>
 				<button
-					className="bg-primary text-primary_tint_3 py-2 px-4 rounded-lg hover:scale-110"
+					className="font-mono bg-line text-foreground py-2 px-4 rounded hover:opacity-90 cursor-pointer"
 					onClick={closeToast}>
 					No
 				</button>
@@ -57,7 +56,7 @@ const PromptUserAlert = () => {
 	return (
 		<>
 			<CallToActionButton handleOnClick={notify}>
-				Download Resume
+				./download-resume
 			</CallToActionButton>
 			<AlertContainer />
 		</>

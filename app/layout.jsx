@@ -1,5 +1,5 @@
 // google fonts
-import { Quicksand, Merriweather } from "next/font/google";
+import { JetBrains_Mono, Karla } from "next/font/google";
 
 // css
 import "./globals.css";
@@ -7,21 +7,20 @@ import "./globals.css";
 // components
 import MainHeader from "@/components/layout/MainHeader";
 import Footer from "@/components/layout/Footer";
-import PageBackground from "@/components/layout/PageBackground";
 
 // seo
 import { SITE_URL, SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
 
-const quicksand = Quicksand({
-	variable: "--font-quicksand-sans",
+const jetbrainsMono = JetBrains_Mono({
+	variable: "--font-jetbrains-mono",
 	subsets: ["latin"],
-	weight: ["300", "400", "500", "700"]
+	weight: ["400", "500", "700", "800"]
 });
 
-const merriweather = Merriweather({
-	variable: "--font-merriweather",
+const karla = Karla({
+	variable: "--font-karla",
 	subsets: ["latin"],
-	weight: ["300", "400", "700", "900"]
+	weight: ["400", "700"]
 });
 
 const description =
@@ -77,13 +76,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en">
-			<body
-				className={`${quicksand.className} antialiased min-h-screen relative xl:px-48 2xl:px-96 selection:bg-secondary selection:text-background text-foreground dark:text-background`}>
-				<PageBackground />
+		<html
+			lang="en"
+			className={`${jetbrainsMono.variable} ${karla.variable}`}>
+			<body className="antialiased min-h-screen relative bg-background text-foreground font-sans selection:bg-secondary selection:text-background">
+				<div
+					aria-hidden="true"
+					className="fixed inset-y-0 left-6 md:left-10 xl:left-20 2xl:left-28 -z-10 w-px bg-line"
+				/>
 				<MainHeader />
 
-				<main className="relative grid opacity-100 place-content-center text-center gap-6 sm:gap-12 md:gap-20 p-6 sm:p-12 md:p-24 pt-24 sm:pt-24 md:pt-48 sm:text-xl md:text-2xl">
+				<main className="container-page grid gap-16 sm:gap-20 md:gap-24 pt-32 pb-16 sm:pt-36 md:pt-40">
 					{children}
 				</main>
 

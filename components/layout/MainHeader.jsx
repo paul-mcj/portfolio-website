@@ -2,31 +2,28 @@
 "use client";
 
 // react
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // next
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faMoon } from "@fortawesome/free-solid-svg-icons";
-import { faSun } from "@fortawesome/free-solid-svg-icons";
 
-// assets
-import blackAndWhiteLogo from "@/public/images/logos/BW_Logo.svg";
+const navLinks = [
+	{ href: "/", label: "Home" },
+	{ href: "/about", label: "About" },
+	{ href: "/projects", label: "Projects" },
+	{ href: "/contact", label: "Contact" }
+];
 
 const MainHeader = () => {
 	const pathname = usePathname();
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-	const [animationMenuName, setAnimationMenuName] = useState("");
-
-	const [darkModeActive, setDarkModeActive] = useState(false);
 
 	const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -36,176 +33,70 @@ const MainHeader = () => {
 		setIsMobileMenuOpen(false);
 	}
 
-	// sync the toggle icon with the persisted theme on mount
-	useEffect(() => {
-		if (localStorage.getItem("theme") === "dark") {
-			document.documentElement.classList.add("dark");
-			// one-time sync from localStorage on mount; replaced by an
-			// SSR-safe theme provider in the upcoming redesign
-			// eslint-disable-next-line react-hooks/set-state-in-effect
-			setDarkModeActive(true);
-		}
-	}, []);
+	const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
-	// apply hover styling to navbar items
-	const hoverEffect =
-		"ease-in-out delay-25 hover:scale-125 duration-500 hover:text-background";
-
-	// toggles dark and light mode
-	const toggleDarkMode = (e) => {
-		// users should only toggle if they press ENTER/RETURN on their keyboard
-		if (e.key === "Tab") return;
-
-		const root = document.documentElement;
-		if (root.classList.contains("dark")) {
-			root.classList.remove("dark");
-			localStorage.setItem("theme", "light");
-		} else {
-			root.classList.add("dark");
-			localStorage.setItem("theme", "dark");
-		}
-		setDarkModeActive((prev) => !prev);
-	};
-
-	// open and close mobile menu
-	const toggleMobileMenu = () => {
-		if (isMobileMenuOpen) {
-			setAnimationMenuName(() => "animate-roll_up");
-		} else {
-			setAnimationMenuName(() => "animate-roll_down");
-		}
-
-		if (!isMobileMenuOpen) {
-			setTimeout(() => {
-				setIsMobileMenuOpen((prev) => !prev);
-			}, 100);
-		} else {
-			setTimeout(() => {
-				setIsMobileMenuOpen((prev) => !prev);
-			}, 500);
-		}
-	};
-
-	// hamburger button
-	const hamburgerButton = (
-		<button
-			onClick={toggleMobileMenu}
-			className="md:hidden p-4 focus:outline-hidden"
-			aria-label="Toggle mobile navigation menu">
-			<FontAwesomeIcon
-				className="w-8 h-8"
-				icon={faEllipsisVertical}
-			/>
-		</button>
-	);
-
-	// close button
-	const closeButton = (
-		<button
-			onClick={toggleMobileMenu}
-			className="md:hidden focus:outline-hidden"
-			aria-label="Toggle mobile navigation menu">
-			<FontAwesomeIcon
-				className="w-8 h-8"
-				icon={faXmark}
-			/>
-		</button>
-	);
-
-	// logo button goes to homepage
-	const logo = (
-		<li>
-			<Link
-				href="/"
-				className="p-0 m-0">
-				<Image
-					quality={100}
-					src={blackAndWhiteLogo}
-					alt="Go to Home Page"
-					width={100}
-					height={100}
-				/>
-			</Link>
-		</li>
-	);
-
-	// button switches dark mode
-	const darkModeButton = (
-		<li
-			className={`left-0 absolute top-48 p-4 md:static md:p-0 md:mr-auto hover:cursor-pointer hover:text-background ${hoverEffect}`}
-			onClick={toggleDarkMode}
-			onKeyDown={toggleDarkMode}
-			tabIndex={0}>
-			{darkModeActive ? (
-				<FontAwesomeIcon
-					className="w-8 h-8"
-					icon={faSun}
-				/>
-			) : (
-				<FontAwesomeIcon
-					className="w-8 h-8"
-					icon={faMoon}
-				/>
-			)}
-		</li>
-	);
-
-	// buttons navigation to main pages
-	const navigationButtons = (
-		<>
-			<li
-				className={`${hoverEffect} ${
-					isMobileMenuOpen && "animate-home_delay_enter"
-				}`}>
-				<Link href="/">Home</Link>
-			</li>
-			<li
-				className={`${hoverEffect} ${
-					isMobileMenuOpen && "animate-about_delay_enter"
-				}`}>
-				<Link href="/about">About</Link>
-			</li>
-			<li
-				className={`${hoverEffect} ${
-					isMobileMenuOpen && "animate-projects_delay_enter"
-				}`}>
-				<Link href="/projects">Projects</Link>
-			</li>
-			<li
-				className={`${hoverEffect} ${
-					isMobileMenuOpen && "animate-contact_delay_enter"
-				}`}>
-				<Link href="/contact">Contact</Link>
-			</li>
-		</>
-	);
-
-	// layout for mobile screens
-	const mobileLayout = (
-		<ul
-			className={`${animationMenuName} p-4 list-none bg-primary flex flex-col gap-4 w-full items-end text-xl font-bold shadow-xl shadow-primary_tint_3 absolute -top-48`}>
-			<li className="text-foreground mt-48">{closeButton}</li>
-			{darkModeButton}
-			{navigationButtons}
-		</ul>
-	);
-
-	// for larger screens
-	const normalNavigationMenu = (
-		<ul className="hidden items-center md:flex p-6 list-none bg-primary gap-8 w-full place-content-end text-xl dark:text-foreground font-bold shadow-md shadow-primary_tint_3 absolute">
-			{logo}
-			{darkModeButton}
-			{navigationButtons}
-		</ul>
-	);
+	const linkClasses = (href) =>
+		`relative transition-colors duration-200 hover:text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-[width] after:duration-300 after:ease-out hover:after:w-full motion-reduce:after:hidden ${
+			pathname === href ? "text-heading" : "text-muted"
+		}`;
 
 	return (
-		<header className="container fixed z-20 min-w-full xl:px-48 2xl:px-96 xl:left-0">
-			<nav className="flex justify-end md:flex-none relative">
-				{normalNavigationMenu}
-				{!isMobileMenuOpen && hamburgerButton}
-				{isMobileMenuOpen && mobileLayout}
+		<header className="fixed inset-x-0 top-0 z-20 border-b border-line bg-surface/95 backdrop-blur-sm">
+			<nav className="container-page flex items-center justify-between py-5">
+				<Link
+					href="/"
+					className="inline-flex items-center font-mono font-bold text-heading">
+					paul.dev
+					<span
+						aria-hidden="true"
+						className="animate-blink ml-0.5 inline-block h-[1em] w-[0.5em] bg-secondary"
+					/>
+				</Link>
+
+				<ul className="hidden md:flex items-center gap-8 font-mono text-sm font-medium">
+					{navLinks.map(({ href, label }) => (
+						<li key={href}>
+							<Link
+								href={href}
+								className={linkClasses(href)}>
+								{label}
+							</Link>
+						</li>
+					))}
+				</ul>
+
+				<button
+					onClick={toggleMobileMenu}
+					className="md:hidden text-heading cursor-pointer focus:outline-hidden"
+					aria-expanded={isMobileMenuOpen}
+					aria-label="Toggle mobile navigation menu">
+					<FontAwesomeIcon
+						className="w-6 h-6"
+						icon={isMobileMenuOpen ? faXmark : faEllipsisVertical}
+					/>
+				</button>
 			</nav>
+
+			<ul
+				className={`md:hidden overflow-hidden border-t border-line bg-surface transition-all duration-300 ease-in-out ${
+					isMobileMenuOpen
+						? "max-h-64 opacity-100"
+						: "max-h-0 opacity-0"
+				}`}>
+				{navLinks.map(({ href, label }) => (
+					<li
+						key={href}
+						className="container-page">
+						<Link
+							href={href}
+							className={`block py-3 font-mono text-sm font-medium ${linkClasses(
+								href
+							)}`}>
+							{label}
+						</Link>
+					</li>
+				))}
+			</ul>
 		</header>
 	);
 };

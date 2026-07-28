@@ -48,27 +48,29 @@ const AboutPage = () => {
 	return (
 		<>
 			<section className="flex flex-col gap-y-8 sm:gap-y-12 md:grid md:grid-cols-2 md:grid-rows-1 md:text-base lg:text-lg md:gap-x-8 md:gap-y-0 md:text-left">
-				<section className="md:col-start-2 md:col-end-3">
+				<section className="md:col-start-2 md:col-end-3 md:place-self-center">
 					<ImageSlideshow />
 				</section>
-				<section className="flex flex-col gap-y-8 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-between md:gap-y-4">
+				<section className="flex flex-col gap-y-6 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 md:justify-center">
+					<p className="font-mono text-sm font-semibold text-secondary uppercase tracking-wider">
+						{"// about me"}
+					</p>
 					<PrimarySectionHeader title="About Me" />
-					<p className="md:mt-8">
-						<span className="inline-block -skew-x-12 -rotate-3 text-secondary font-bold text-xl bg-foreground px-4 py-2">
+					<p className="md:mt-8 text-muted">
+						<span className="font-bold text-lg">
 							Hey, I&apos;m Paul!
-						</span>
-						&nbsp; I am the founder and lead developer
-						of&nbsp;
+						</span>{" "}
+						I am the founder and lead developer of{" "}
 						<Link
 							href="https://www.volinix.ca"
-							className="underline text-secondary font-bold">
+							className="underline font-bold text-primary">
 							Volinix Studio
 						</Link>
 						, a Ontario-based company that offers web design,
 						SEO and content care services for small local
 						businesses.
 					</p>
-					<p>
+					<p className="text-muted">
 						Python is the most recent technology I have fallen
 						in love with, and I am interested to see how I can
 						incorporate it into my web development projects
@@ -77,142 +79,144 @@ const AboutPage = () => {
 					</p>
 				</section>
 			</section>
-			<section className="flex flex-col gap-y-8 md:px-32 mt-16">
-				<SecondaryHeader title="Current Web Tech Stack" />
-				<ul className="flex justify-evenly flex-wrap gap-2">
-					<li>
-						<Badge title="html" />
-					</li>
-					<li>
-						<Badge title="css" />
-					</li>
-					<li>
-						<Badge title="javascript" />
-					</li>
-					<li>
-						<Badge title="react" />
-					</li>
-					<li>
-						<Badge title="next.js" />
-					</li>
-					<li>
-						<Badge title="react native" />
-					</li>
-					<li>
-						<Badge title="node.js" />
-					</li>
-					<li>
-						<Badge title="tailwindcss" />
-					</li>
-					<li>
-						<Badge title="npm" />
-					</li>
-					<li>
-						<Badge title="python" />
-					</li>
-					<li>
-						<Badge title="pip" />
-					</li>
-					<li>
-						<Badge title="mysql" />
-					</li>
-				</ul>
-			</section>
-			<section className="flex flex-col gap-y-8 md:px-32 mt-16">
-				<SecondaryHeader title="Other Tech Skills" />
-				<ul className="flex justify-evenly flex-wrap gap-2">
-					<li>
-						<Badge title="json" />
-					</li>
-					<li>
-						<Badge title="rest api" />
-					</li>
-					<li>
-						<Badge title="git" />
-					</li>
-					<li>
-						<Badge title="vite" />
-					</li>
-					<li>
-						<Badge title="tensorflow" />
-					</li>
-					<li>
-						<Badge title="ccna" />
-					</li>
-					<li>
-						<Badge title="bootstrap" />
-					</li>
-					<li>
-						<Badge title="material ui" />
-					</li>
-				</ul>
-			</section>
-			<section className="flex flex-col gap-y-8 mt-16 place-items-center">
-				<SecondaryHeader title="Interests" />
-				<ul className="grid gap-2">
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faPython}
-								className="w-6 h-6"
-							/>
-						</span>
-						Python
-					</li>
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faMicrochip}
-								className="w-6 h-6"
-							/>
-						</span>
-						Machine Learning
-					</li>
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faHockeyPuck}
-								className="w-6 h-6"
-							/>
-						</span>
-						Hockey
-					</li>
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faBaseball}
-								className="w-6 h-6"
-							/>
-						</span>
-						Baseball
-					</li>
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faHeadphones}
-								className="w-6 h-6"
-							/>
-						</span>
-						Music
-					</li>
-					<li className="flex content-center gap-x-2">
-						<span>
-							<FontAwesomeIcon
-								icon={faWizardsOfTheCoast}
-								className="w-6 h-6"
-							/>
-						</span>
-						Magic: the Gathering
-					</li>
-				</ul>
-			</section>
-			<section className="flex flex-col gap-y-8 sm:gap-y-12 mt-16 place-items-center">
-				<Link href="/contact">
-					<CallToActionButton>
-						Get in touch with me
-					</CallToActionButton>
-				</Link>
-			</section>
+			<div className="flex flex-col gap-y-10 md:gap-y-14">
+				<section className="flex flex-col gap-y-8">
+					<SecondaryHeader title="current web tech stack" />
+					<ul className="flex justify-center flex-wrap gap-2">
+						<li>
+							<Badge title="html" />
+						</li>
+						<li>
+							<Badge title="css" />
+						</li>
+						<li>
+							<Badge title="javascript" />
+						</li>
+						<li>
+							<Badge title="react" />
+						</li>
+						<li>
+							<Badge title="next.js" />
+						</li>
+						<li>
+							<Badge title="react native" />
+						</li>
+						<li>
+							<Badge title="node.js" />
+						</li>
+						<li>
+							<Badge title="tailwindcss" />
+						</li>
+						<li>
+							<Badge title="npm" />
+						</li>
+						<li>
+							<Badge title="python" />
+						</li>
+						<li>
+							<Badge title="pip" />
+						</li>
+						<li>
+							<Badge title="mysql" />
+						</li>
+					</ul>
+				</section>
+				<section className="flex flex-col gap-y-8">
+					<SecondaryHeader title="other tech skills" />
+					<ul className="flex justify-center flex-wrap gap-2">
+						<li>
+							<Badge title="json" />
+						</li>
+						<li>
+							<Badge title="rest api" />
+						</li>
+						<li>
+							<Badge title="git" />
+						</li>
+						<li>
+							<Badge title="vite" />
+						</li>
+						<li>
+							<Badge title="tensorflow" />
+						</li>
+						<li>
+							<Badge title="ccna" />
+						</li>
+						<li>
+							<Badge title="bootstrap" />
+						</li>
+						<li>
+							<Badge title="material ui" />
+						</li>
+					</ul>
+				</section>
+				<section className="flex flex-col gap-y-8">
+					<SecondaryHeader title="interests" />
+					<ul className="flex flex-wrap justify-center gap-2 text-muted">
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faPython}
+									className="w-4 h-4"
+								/>
+							</span>
+							Python
+						</li>
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faMicrochip}
+									className="w-4 h-4"
+								/>
+							</span>
+							Machine Learning
+						</li>
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faHockeyPuck}
+									className="w-4 h-4"
+								/>
+							</span>
+							Hockey
+						</li>
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faBaseball}
+									className="w-4 h-4"
+								/>
+							</span>
+							Baseball
+						</li>
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faHeadphones}
+									className="w-4 h-4"
+								/>
+							</span>
+							Music
+						</li>
+						<li className="group inline-flex items-center gap-2 rounded border border-line px-3 py-1.5 text-sm transition-colors duration-200 hover:border-cyan hover:bg-cyan hover:text-background">
+							<span className="text-cyan transition-colors duration-200 group-hover:text-background">
+								<FontAwesomeIcon
+									icon={faWizardsOfTheCoast}
+									className="w-4 h-4"
+								/>
+							</span>
+							Magic: the Gathering
+						</li>
+					</ul>
+				</section>
+				<section className="flex flex-col gap-y-8 place-items-center">
+					<Link href="/contact">
+						<CallToActionButton>
+							./get-in-touch
+						</CallToActionButton>
+					</Link>
+				</section>
+			</div>
 		</>
 	);
 };

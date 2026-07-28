@@ -16,7 +16,7 @@ const ImageContainer = ({
 		<div
 			className={`grid place-items-center ${activeAnimation} ${isHidden}`}>
 			<Image
-				className={`rounded-full border-solid border-4 ${borderColor} w-2/3 md:w-full lg:full shadow-2xl shadow-foreground`}
+				className={`rounded-full border-solid border-4 ${borderColor} w-48 sm:w-56 md:w-64 lg:w-72`}
 				src={src}
 				alt={alt}
 				title={title}
@@ -26,11 +26,7 @@ const ImageContainer = ({
 	);
 };
 
-ImageContainer.defaultProps = {
-	additionalClasses: ""
-};
-
-ImageContainer.PropTypes = {
+ImageContainer.propTypes = {
 	src: PropTypes.object.isRequired,
 	alt: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,

@@ -13,7 +13,7 @@ const FooterIcon = ({ iconName }) => {
 	);
 };
 
-FooterIcon.PropTypes = {
+FooterIcon.propTypes = {
 	iconName: PropTypes.object.isRequired
 };
 
