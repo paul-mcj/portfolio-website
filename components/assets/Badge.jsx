@@ -9,7 +9,12 @@ const variantByTitle = {
 	python: "primary",
 	mysql: "primary",
 
+	postgresql: "primary",
+	sqlite: "primary",
+	django: "primary",
+
 	javascript: "secondary",
+	typescript: "secondary",
 	"node.js": "secondary",
 	json: "secondary",
 	npm: "secondary",
@@ -27,6 +32,9 @@ const variantByTitle = {
 	"rest api": "muted",
 	git: "muted",
 	tensorflow: "muted",
+	cloudflare: "muted",
+	vapi: "muted",
+	vitest: "muted",
 	ccna: "muted"
 };
 

@@ -68,23 +68,20 @@ nextjs-portal {
 	animation: blink 1.1s steps(1) infinite;
 }
 
-@keyframes fade_out {
-	0% {
-		opacity: 0;
+/* the new page draws itself in left to right, like a terminal redrawing the
+   screen. Replayed on every navigation because AnimatedMain keys <main> by
+   pathname, so the element remounts and the animation restarts. */
+@keyframes page_wipe {
+	from {
+		clip-path: inset(0 100% 0 0);
 	}
-	25% {
-		opacity: 1;
-	}
-	75% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
+	to {
+		clip-path: inset(0 0 0 0);
 	}
 }
 
-.animate-fade_out {
-	animation: fade_out 5s ease-in-out;
+.animate-page_wipe {
+	animation: page_wipe 450ms ease-out;
 }
 
 @keyframes typing {
@@ -101,8 +98,8 @@ nextjs-portal {
 
 @media (prefers-reduced-motion: reduce) {
 	.animate-blink,
-	.animate-fade_out,
-	.animate-typing {
+	.animate-typing,
+	.animate-page_wipe {
 		animation: none;
 	}
 }

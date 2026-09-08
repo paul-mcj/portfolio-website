@@ -7,6 +7,7 @@ import "./globals.css";
 // components
 import MainHeader from "@/components/layout/MainHeader";
 import Footer from "@/components/layout/Footer";
+import AnimatedMain from "@/components/layout/AnimatedMain";
 
 // seo
 import { SITE_URL, SITE_NAME, defaultOpenGraphImage } from "@/store/seo.mjs";
@@ -29,7 +30,7 @@ const description =
 export const metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: {
-		default: "Paul McJannet | Web Developer",
+		default: "Paul McJannet | Full-stack web Developer",
 		template: `%s | ${SITE_NAME}`
 	},
 	description,
@@ -40,14 +41,14 @@ export const metadata = {
 		type: "website",
 		url: "/",
 		siteName: SITE_NAME,
-		title: "Paul McJannet | Web Developer",
+		title: "Paul McJannet | Full-stack Web Developer",
 		description,
 		locale: "en_CA",
 		images: [defaultOpenGraphImage]
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Paul McJannet | Web Developer",
+		title: "Paul McJannet | Full-stack Web Developer",
 		description,
 		images: [defaultOpenGraphImage.url]
 	},
@@ -86,9 +87,7 @@ export default function RootLayout({ children }) {
 				/>
 				<MainHeader />
 
-				<main className="container-page grid gap-16 sm:gap-20 md:gap-24 pt-32 pb-16 sm:pt-36 md:pt-40">
-					{children}
-				</main>
+				<AnimatedMain>{children}</AnimatedMain>
 
 				<Footer />
 			</body>

@@ -46,7 +46,7 @@ const MainHeader = () => {
 				<Link
 					href="/"
 					className="inline-flex items-center font-mono font-bold text-heading">
-					paul.dev
+					paulmcjannet.com
 					<span
 						aria-hidden="true"
 						className="animate-blink ml-0.5 inline-block h-[1em] w-[0.5em] bg-secondary"
@@ -72,7 +72,11 @@ const MainHeader = () => {
 					aria-label="Toggle mobile navigation menu">
 					<FontAwesomeIcon
 						className="w-6 h-6"
-						icon={isMobileMenuOpen ? faXmark : faEllipsisVertical}
+						icon={
+							isMobileMenuOpen
+								? faXmark
+								: faEllipsisVertical
+						}
 					/>
 				</button>
 			</nav>

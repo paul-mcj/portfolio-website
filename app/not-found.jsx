@@ -3,9 +3,6 @@ import PrimarySectionHeader from "@/components/layout/PrimarySectionHeader";
 import CallToActionButton from "@/components/assets/CallToActionButton";
 import SecondaryHeader from "@/components/layout/SecondaryHeader";
 
-// next
-import Link from "next/link";
-
 const NotFound = () => {
 	return (
 		<section className="grid place-items-center text-center gap-y-16">
@@ -16,9 +13,7 @@ const NotFound = () => {
 					Looks like you&apos;re lost! This page cannot be found...
 				</p>
 			</div>
-			<Link href="/">
-				<CallToActionButton>./go-home</CallToActionButton>
-			</Link>
+			<CallToActionButton href="/">./go-home</CallToActionButton>
 		</section>
 	);
 };

@@ -9,21 +9,25 @@ const ImageContainer = ({
 	alt,
 	title,
 	borderColor,
-	activeAnimation,
-	isHidden,
-	preload
+	priority,
+	className,
+	ariaHidden
 }) => {
 	return (
 		<div
-			className={`grid place-items-center ${activeAnimation} ${isHidden}`}>
+			aria-hidden={ariaHidden}
+			className={`grid place-items-center ${className ?? ""}`}>
+			{/* aspect-square + object-cover, so `rounded-full` is a real
+			    circle whatever shape the source photo is. Without them only
+			    an already-square image comes out round - a landscape one
+			    renders as an ellipse. */}
 			<Image
-				className={`rounded-full border-solid border-4 ${borderColor} w-48 sm:w-56 md:w-64 lg:w-72`}
+				className={`aspect-square rounded-full border-solid border-4 object-cover ${borderColor} w-48 sm:w-56 md:w-64 lg:w-72`}
 				src={src}
 				alt={alt}
 				title={title}
 				sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 192px"
-				preload={preload}
-				fetchPriority={preload ? "high" : undefined}
+				priority={priority}
 			/>
 		</div>
 	);
@@ -34,9 +38,9 @@ ImageContainer.propTypes = {
 	alt: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	borderColor: PropTypes.string,
-	activeAnimation: PropTypes.bool,
-	isHidden: PropTypes.bool,
-	preload: PropTypes.bool
+	priority: PropTypes.bool,
+	className: PropTypes.string,
+	ariaHidden: PropTypes.bool
 };
 
 export default ImageContainer;

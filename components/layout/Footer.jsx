@@ -12,7 +12,7 @@ const Footer = () => {
 	return (
 		<footer className="border-t border-line">
 			<div className="container-page flex flex-col sm:flex-row items-center justify-between gap-4 py-8 font-mono text-sm text-faint">
-				<p>© {year} Paul McJannet</p>
+				<p>© {year} Paul McJannet | v2.1.0</p>
 				<ul className="flex items-center gap-6">
 					<li>
 						<a
