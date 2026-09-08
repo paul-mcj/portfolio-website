@@ -17,10 +17,14 @@ import PropTypes from "prop-types";
 // `delay` is what turns a row of siblings into a cascade rather than one
 // simultaneous pop. Roughly 60-80ms apart reads as deliberate; much more
 // starts to feel slow.
+// `lift` adds the upward slide. Turn it off for anything an anchor link can
+// target: the browser scrolls to the element's start position, and a 24px
+// slide afterwards leaves the reader looking at the wrong spot.
 const Reveal = ({
 	as: Tag = "div",
 	children,
 	delay = 0,
+	lift = true,
 	className = "",
 	...rest
 }) => {
@@ -55,7 +59,7 @@ const Reveal = ({
 			className={`transition-all duration-300 ease-out motion-reduce:transition-none motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:delay-[0ms] ${
 				isVisible
 					? "opacity-100 translate-y-0"
-					: "opacity-0 translate-y-6"
+					: `opacity-0 ${lift ? "translate-y-6" : ""}`
 			} ${className}`}>
 			{children}
 		</Tag>
@@ -66,6 +70,7 @@ Reveal.propTypes = {
 	as: PropTypes.elementType,
 	children: PropTypes.node,
 	delay: PropTypes.number,
+	lift: PropTypes.bool,
 	className: PropTypes.string
 };
 

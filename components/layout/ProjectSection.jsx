@@ -36,7 +36,12 @@ const ProjectSection = ({
 	));
 
 	return (
-		<article
+		// no stagger delay - these are full-width and arrive one at a time
+		// as you scroll, so a delay would just read as lag. lift={false}
+		// because the homepage cards link straight to these ids.
+		<Reveal
+			as="article"
+			lift={false}
 			id={slug}
 			className="w-full scroll-mt-32 rounded-lg border border-line bg-surface p-6 md:p-8">
 			<div className="flex flex-col gap-6">
@@ -121,7 +126,7 @@ const ProjectSection = ({
 					))}
 				</div>
 			</div>
-		</article>
+		</Reveal>
 	);
 };
 
