@@ -16,6 +16,11 @@ const EMAIL = "mcjannetp@gmail.com";
 // every way to reach me, rendered as one list. `value` is what the row shows
 // in monospace - the handle rather than the full URL, which keeps the rows
 // scannable and stops long hrefs wrapping on mobile.
+//
+// `label` is the lg-and-up column only. Below that the icon carries the
+// meaning on its own and the text column would squeeze the value into an
+// ellipsis, so it is display:none there - no loss for screen readers, which
+// announce `ariaLabel` rather than either span.
 const channels = [
 	{
 		icon: faEnvelope,
@@ -78,9 +83,16 @@ export const metadata = {
 // home and about pages sit in at xl: the 1280px container less its 5rem side
 // padding, less the 2rem grid gap, halved. The named steps straddle it -
 // max-w-lg is 32px short and max-w-xl 32px over - so the spacing step is used.
+//
+// min-w-0 on the same element is the guard against sideways scroll: <main> is
+// a grid, so this section defaults to min-width:auto and will refuse to shrink
+// below the min-content width of its widest terminal row, dragging the whole
+// page wider than the viewport. Dropping the row labels below lg is what
+// actually buys the room today, but this keeps a longer value from re-breaking
+// the page - it truncates instead.
 const ContactPage = () => {
 	return (
-		<section className="flex w-full max-w-136 flex-col gap-y-6 text-left">
+		<section className="flex w-full min-w-0 max-w-136 flex-col gap-y-6 text-left">
 			<p className="font-mono text-sm font-semibold text-secondary uppercase tracking-wider">
 				{"// contact"}
 			</p>
@@ -116,7 +128,7 @@ const ContactPage = () => {
 										icon={icon}
 										className="h-4 w-4 shrink-0 text-faint transition-colors duration-200 group-hover:text-primary"
 									/>
-									<span className="w-20 shrink-0 font-mono text-xs uppercase tracking-wider text-faint">
+									<span className="hidden w-20 shrink-0 font-mono text-xs uppercase tracking-wider text-faint lg:block">
 										{label}
 									</span>
 									<span className="truncate font-mono text-sm text-heading transition-colors duration-200 group-hover:text-primary">
